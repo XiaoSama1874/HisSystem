@@ -1,6 +1,6 @@
-package com.xiaosama.springboot_mybatis.mapper;
+package com.xiaosama.HisSystem.mapper;
 
-import com.xiaosama.springboot_mybatis.entity.ApplyStatus;
+import com.xiaosama.HisSystem.entity.ApplyStatus;
 import org.apache.ibatis.annotations.*;
 
 import java.util.List;

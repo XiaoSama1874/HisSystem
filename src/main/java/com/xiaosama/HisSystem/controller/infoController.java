@@ -1,4 +1,4 @@
-package com.xiaosama.springboot_mybatis.controller;
+package com.xiaosama.HisSystem.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.JdbcTemplate;

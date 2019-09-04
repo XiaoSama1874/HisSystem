@@ -1,14 +1,11 @@
-package com.xiaosama.springboot_mybatis.controller;
+package com.xiaosama.HisSystem.controller;
 
-import com.xiaosama.springboot_mybatis.entity.ApplyStatus;
-import com.xiaosama.springboot_mybatis.mapper.ApplyStatusMapper;
-import org.apache.ibatis.annotations.Delete;
+import com.xiaosama.HisSystem.entity.ApplyStatus;
+import com.xiaosama.HisSystem.mapper.ApplyStatusMapper;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Map;
 
 
 //restful 风格

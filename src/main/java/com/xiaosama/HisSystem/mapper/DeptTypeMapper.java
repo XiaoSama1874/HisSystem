@@ -1,6 +1,6 @@
-package com.xiaosama.springboot_mybatis.mapper;
+package com.xiaosama.HisSystem.mapper;
 
-import com.xiaosama.springboot_mybatis.entity.DeptType;
+import com.xiaosama.HisSystem.entity.DeptType;
 import org.apache.ibatis.annotations.Mapper;
 
 @Mapper

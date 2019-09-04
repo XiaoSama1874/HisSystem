@@ -1,4 +1,4 @@
-package com.xiaosama.springboot_mybatis.entity;
+package com.xiaosama.HisSystem.entity;
 
 public class DeptType {
     public Integer ID;

@@ -1,4 +1,4 @@
-package com.xiaosama.springboot_mybatis.config;
+package com.xiaosama.HisSystem.config;
 
 import org.apache.ibatis.session.Configuration;
 import org.mybatis.spring.boot.autoconfigure.ConfigurationCustomizer;

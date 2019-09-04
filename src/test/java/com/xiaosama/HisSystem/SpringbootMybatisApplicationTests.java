@@ -1,4 +1,4 @@
-package com.xiaosama.springboot_mybatis;
+package com.xiaosama.HisSystem;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

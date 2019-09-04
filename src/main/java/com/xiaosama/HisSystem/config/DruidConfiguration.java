@@ -1,4 +1,4 @@
-package com.xiaosama.springboot_mybatis.config;
+package com.xiaosama.HisSystem.config;
 
 import com.alibaba.druid.pool.DruidDataSource;
 import com.alibaba.druid.support.http.StatViewServlet;

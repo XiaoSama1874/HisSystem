@@ -1,7 +1,7 @@
-package com.xiaosama.springboot_mybatis.controller;
+package com.xiaosama.HisSystem.controller;
 
-import com.xiaosama.springboot_mybatis.entity.DeptType;
-import com.xiaosama.springboot_mybatis.mapper.DeptTypeMapper;
+import com.xiaosama.HisSystem.entity.DeptType;
+import com.xiaosama.HisSystem.mapper.DeptTypeMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
