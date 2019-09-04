@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.xiaosama.springboot_mybatis.mapper.DeptTypeMapper">
+        <select id="select" resultType="com.xiaosama.springboot_mybatis.entity.DeptType">
+            select * from dept_type where id =#{id}
+        </select>
+        <insert id="insert">
+            insert into dept_type value(null,#{value})
+        </insert>
+</mapper>
