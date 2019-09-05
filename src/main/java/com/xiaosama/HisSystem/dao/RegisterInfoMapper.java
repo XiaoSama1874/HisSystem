@@ -2,11 +2,14 @@ package com.xiaosama.HisSystem.dao;
 
 import com.xiaosama.HisSystem.pojo.po.RegisterInfo;
 import com.xiaosama.HisSystem.pojo.po.RegisterInfoExample;
+import org.apache.ibatis.annotations.Insert;
+import org.apache.ibatis.annotations.Options;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
 public interface RegisterInfoMapper {
+
     int countByExample(RegisterInfoExample example);
 
     int deleteByExample(RegisterInfoExample example);

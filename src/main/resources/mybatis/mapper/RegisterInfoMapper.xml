@@ -121,7 +121,7 @@
       #{isInMorning,jdbcType=BIT}, #{isNeedMedicalBook,jdbcType=BIT}, #{diagnoseDate,jdbcType=DATE}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
-    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.RegisterInfo">
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.xiaosama.HisSystem.pojo.po.RegisterInfo">
     insert into register_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

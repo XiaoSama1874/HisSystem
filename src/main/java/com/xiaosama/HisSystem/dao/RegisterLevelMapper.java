@@ -3,10 +3,14 @@ package com.xiaosama.HisSystem.dao;
 import com.xiaosama.HisSystem.pojo.po.RegisterLevel;
 import com.xiaosama.HisSystem.pojo.po.RegisterLevelExample;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
 
 public interface RegisterLevelMapper {
+    @Select("select * from register_level")
+    List<RegisterLevel> all();
+
     int countByExample(RegisterLevelExample example);
 
     int deleteByExample(RegisterLevelExample example);

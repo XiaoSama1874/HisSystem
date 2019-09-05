@@ -1,7 +1,6 @@
-package com.xiaosama.HisSystem;
+package com.xiaosama.HisSystem.service;
 
 import com.xiaosama.HisSystem.pojo.dto.DtoDoctor;
-import com.xiaosama.HisSystem.service.RegisterService;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,13 +11,12 @@ import java.util.List;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest
-public class SpringbootMybatisApplicationTests {
-
+public class RegisterServiceImplTest {
+    @Autowired
+    RegisterService registerService;
     @Test
-    public void contextLoads() {
-
+    public void testGetAllDoctors(){
+        List<DtoDoctor> a = registerService.getAllDoctors();
+        System.out.println(a);
     }
-
-
-
 }
