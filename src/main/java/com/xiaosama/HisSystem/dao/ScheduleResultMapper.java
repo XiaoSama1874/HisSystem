@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.ScheduleResult;
-import com.xiaosama.HisSystem.po.ScheduleResultExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.ScheduleResult;
+import com.xiaosama.HisSystem.pojo.po.ScheduleResultExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ScheduleResultMapper {
     int countByExample(ScheduleResultExample example);

@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateDtl;
-import com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateDtlExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateDtl;
+import com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateDtlExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface WesternMedicinePrespTemplateDtlMapper {
     int countByExample(WesternMedicinePrespTemplateDtlExample example);

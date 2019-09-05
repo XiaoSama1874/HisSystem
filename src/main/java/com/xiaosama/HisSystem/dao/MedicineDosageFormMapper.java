@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.MedicineDosageForm;
-import com.xiaosama.HisSystem.po.MedicineDosageFormExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.MedicineDosageForm;
+import com.xiaosama.HisSystem.pojo.po.MedicineDosageFormExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface MedicineDosageFormMapper {
     int countByExample(MedicineDosageFormExample example);

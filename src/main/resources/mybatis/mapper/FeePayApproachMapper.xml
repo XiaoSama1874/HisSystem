@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.FeePayApproachMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.FeePayApproach" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.FeePayApproach">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="value" property="value" jdbcType="VARCHAR" />
   </resultMap>
@@ -66,7 +66,8 @@
   <sql id="Base_Column_List" >
     id, value
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.FeePayApproachExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.FeePayApproachExample">
     select
     <if test="distinct" >
       distinct
@@ -90,17 +91,17 @@
     delete from fee_pay_approach
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.FeePayApproachExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.FeePayApproachExample">
     delete from fee_pay_approach
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.FeePayApproach" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.FeePayApproach">
     insert into fee_pay_approach (id, value)
     values (#{id,jdbcType=INTEGER}, #{value,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.FeePayApproach" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.FeePayApproach">
     insert into fee_pay_approach
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -119,7 +120,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.FeePayApproachExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.FeePayApproachExample"
+            resultType="java.lang.Integer">
     select count(*) from fee_pay_approach
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -147,7 +149,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.FeePayApproach" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.pojo.po.FeePayApproach">
     update fee_pay_approach
     <set >
       <if test="value != null" >
@@ -156,7 +158,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.FeePayApproach" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.FeePayApproach">
     update fee_pay_approach
     set value = #{value,jdbcType=VARCHAR}
     where id = #{id,jdbcType=INTEGER}

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.DoctorMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.Doctor" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.Doctor">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="user_name" property="userName" jdbcType="CHAR" />
     <result column="user_password" property="userPassword" jdbcType="VARCHAR" />
@@ -74,7 +74,7 @@
     id, user_name, user_password, real_name, dept_name, user_type, medical_level, register_level, 
     is_join_schedule
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.DoctorExample" >
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.pojo.po.DoctorExample">
     select
     <if test="distinct" >
       distinct
@@ -98,13 +98,13 @@
     delete from doctor
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.DoctorExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.DoctorExample">
     delete from doctor
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.Doctor" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.Doctor">
     insert into doctor (id, user_name, user_password, 
       real_name, dept_name, user_type, 
       medical_level, register_level, is_join_schedule
@@ -114,7 +114,7 @@
       #{medicalLevel,jdbcType=CHAR}, #{registerLevel,jdbcType=CHAR}, #{isJoinSchedule,jdbcType=BIT}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.Doctor" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.Doctor">
     insert into doctor
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -175,7 +175,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.DoctorExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.DoctorExample"
+            resultType="java.lang.Integer">
     select count(*) from doctor
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -231,7 +232,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.Doctor" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.pojo.po.Doctor">
     update doctor
     <set >
       <if test="userName != null" >
@@ -261,7 +262,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.Doctor" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.Doctor">
     update doctor
     set user_name = #{userName,jdbcType=CHAR},
       user_password = #{userPassword,jdbcType=VARCHAR},

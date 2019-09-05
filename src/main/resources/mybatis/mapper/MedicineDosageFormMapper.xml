@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.MedicineDosageFormMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.MedicineDosageForm" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.MedicineDosageForm">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="value" property="value" jdbcType="CHAR" />
   </resultMap>
@@ -66,7 +66,8 @@
   <sql id="Base_Column_List" >
     id, value
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.MedicineDosageFormExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.MedicineDosageFormExample">
     select
     <if test="distinct" >
       distinct
@@ -90,17 +91,17 @@
     delete from medicine_dosage_form
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.MedicineDosageFormExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.MedicineDosageFormExample">
     delete from medicine_dosage_form
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.MedicineDosageForm" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.MedicineDosageForm">
     insert into medicine_dosage_form (id, value)
     values (#{id,jdbcType=INTEGER}, #{value,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.MedicineDosageForm" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.MedicineDosageForm">
     insert into medicine_dosage_form
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -119,7 +120,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.MedicineDosageFormExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.MedicineDosageFormExample"
+            resultType="java.lang.Integer">
     select count(*) from medicine_dosage_form
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -147,7 +149,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.MedicineDosageForm" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.pojo.po.MedicineDosageForm">
     update medicine_dosage_form
     <set >
       <if test="value != null" >
@@ -156,7 +158,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.MedicineDosageForm" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.MedicineDosageForm">
     update medicine_dosage_form
     set value = #{value,jdbcType=CHAR}
     where id = #{id,jdbcType=INTEGER}

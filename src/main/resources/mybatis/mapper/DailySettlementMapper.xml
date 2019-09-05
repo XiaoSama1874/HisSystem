@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.DailySettlementMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.DailySettlement" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.DailySettlement">
     <result column="id" property="id" jdbcType="INTEGER" />
     <result column="register_id" property="registerId" jdbcType="INTEGER" />
     <result column="money" property="money" jdbcType="DECIMAL" />
@@ -69,7 +69,8 @@
   <sql id="Base_Column_List" >
     id, register_id, money, end_time, register_name
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.DailySettlementExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.DailySettlementExample">
     select
     <if test="distinct" >
       distinct
@@ -83,19 +84,19 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.DailySettlementExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.DailySettlementExample">
     delete from daily_settlement
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.DailySettlement" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.DailySettlement">
     insert into daily_settlement (id, register_id, money, 
       end_time, register_name)
     values (#{id,jdbcType=INTEGER}, #{registerId,jdbcType=INTEGER}, #{money,jdbcType=DECIMAL}, 
       #{endTime,jdbcType=TIMESTAMP}, #{registerName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.DailySettlement" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.DailySettlement">
     insert into daily_settlement
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -132,7 +133,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.DailySettlementExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.DailySettlementExample"
+            resultType="java.lang.Integer">
     select count(*) from daily_settlement
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

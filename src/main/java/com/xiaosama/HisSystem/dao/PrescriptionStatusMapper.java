@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.PrescriptionStatus;
-import com.xiaosama.HisSystem.po.PrescriptionStatusExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.PrescriptionStatus;
+import com.xiaosama.HisSystem.pojo.po.PrescriptionStatusExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PrescriptionStatusMapper {
     int countByExample(PrescriptionStatusExample example);

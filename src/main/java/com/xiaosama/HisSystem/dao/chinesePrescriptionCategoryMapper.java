@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.chinesePrescriptionCategory;
-import com.xiaosama.HisSystem.po.chinesePrescriptionCategoryExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.chinesePrescriptionCategory;
+import com.xiaosama.HisSystem.pojo.po.chinesePrescriptionCategoryExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface chinesePrescriptionCategoryMapper {
     int countByExample(chinesePrescriptionCategoryExample example);

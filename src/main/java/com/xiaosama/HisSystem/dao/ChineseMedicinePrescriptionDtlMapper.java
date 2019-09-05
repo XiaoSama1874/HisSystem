@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl;
-import com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtlExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtl;
+import com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtlExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ChineseMedicinePrescriptionDtlMapper {
     int countByExample(ChineseMedicinePrescriptionDtlExample example);

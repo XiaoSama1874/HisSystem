@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.FeeDtl;
-import com.xiaosama.HisSystem.po.FeeDtlExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.FeeDtl;
+import com.xiaosama.HisSystem.pojo.po.FeeDtlExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface FeeDtlMapper {
     int countByExample(FeeDtlExample example);

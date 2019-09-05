@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.UserTypeMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.UserType" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.UserType">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="value" property="value" jdbcType="CHAR" />
   </resultMap>
@@ -66,7 +66,8 @@
   <sql id="Base_Column_List" >
     id, value
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.UserTypeExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.UserTypeExample">
     select
     <if test="distinct" >
       distinct
@@ -90,17 +91,17 @@
     delete from his_user_type
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.UserTypeExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.UserTypeExample">
     delete from his_user_type
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.UserType" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.UserType">
     insert into his_user_type (id, value)
     values (#{id,jdbcType=INTEGER}, #{value,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.UserType" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.UserType">
     insert into his_user_type
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -119,7 +120,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.UserTypeExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.UserTypeExample"
+            resultType="java.lang.Integer">
     select count(*) from his_user_type
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -147,7 +149,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.UserType" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.pojo.po.UserType">
     update his_user_type
     <set >
       <if test="value != null" >
@@ -156,7 +158,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.UserType" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.UserType">
     update his_user_type
     set value = #{value,jdbcType=CHAR}
     where id = #{id,jdbcType=INTEGER}

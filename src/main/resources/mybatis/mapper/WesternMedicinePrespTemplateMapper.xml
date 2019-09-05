@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.WesternMedicinePrespTemplateMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplate" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplate">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
     <result column="creator_id" property="creatorId" jdbcType="INTEGER" />
@@ -70,7 +70,8 @@
   <sql id="Base_Column_List" >
     id, name, creator_id, creator_name, usable_range, create_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateExample">
     select
     <if test="distinct" >
       distinct
@@ -94,13 +95,13 @@
     delete from western_medicine_presp_template
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateExample">
     delete from western_medicine_presp_template
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplate" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplate">
     insert into western_medicine_presp_template (id, name, creator_id, 
       creator_name, usable_range, create_time
       )
@@ -108,7 +109,7 @@
       #{creatorName,jdbcType=VARCHAR}, #{usableRange,jdbcType=VARCHAR}, #{createTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplate" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplate">
     insert into western_medicine_presp_template
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -151,7 +152,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateExample"
+            resultType="java.lang.Integer">
     select count(*) from western_medicine_presp_template
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -195,7 +197,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplate" >
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplate">
     update western_medicine_presp_template
     <set >
       <if test="name != null" >
@@ -216,7 +219,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplate" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplate">
     update western_medicine_presp_template
     set name = #{name,jdbcType=VARCHAR},
       creator_id = #{creatorId,jdbcType=INTEGER},

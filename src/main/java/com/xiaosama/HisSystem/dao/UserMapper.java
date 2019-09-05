@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.User;
-import com.xiaosama.HisSystem.po.UserExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.User;
+import com.xiaosama.HisSystem.pojo.po.UserExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserMapper {
     int countByExample(UserExample example);

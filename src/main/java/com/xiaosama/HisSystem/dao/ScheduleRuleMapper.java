@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.ScheduleRule;
-import com.xiaosama.HisSystem.po.ScheduleRuleExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.ScheduleRule;
+import com.xiaosama.HisSystem.pojo.po.ScheduleRuleExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ScheduleRuleMapper {
     int countByExample(ScheduleRuleExample example);

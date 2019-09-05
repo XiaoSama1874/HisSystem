@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.TemplateUsableRange;
-import com.xiaosama.HisSystem.po.TemplateUsableRangeExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.TemplateUsableRange;
+import com.xiaosama.HisSystem.pojo.po.TemplateUsableRangeExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface TemplateUsableRangeMapper {
     int countByExample(TemplateUsableRangeExample example);

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.ChineseMedicinePrespTemplateMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.ChineseMedicinePrespTemplate" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrespTemplate">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="creator_id" property="creatorId" jdbcType="INTEGER" />
     <result column="creator_name" property="creatorName" jdbcType="VARCHAR" />
@@ -77,7 +77,8 @@
     id, creator_id, creator_name, create_time, name, category, amount, use_type, func, 
     func_dtl, instruction, usable_range
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrespTemplateExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrespTemplateExample">
     select
     <if test="distinct" >
       distinct
@@ -101,13 +102,13 @@
     delete from chinese_medicine_presp_template
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrespTemplateExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrespTemplateExample">
     delete from chinese_medicine_presp_template
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrespTemplate" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrespTemplate">
     insert into chinese_medicine_presp_template (id, creator_id, creator_name, 
       create_time, name, category, 
       amount, use_type, func, 
@@ -119,7 +120,7 @@
       #{funcDtl,jdbcType=VARCHAR}, #{instruction,jdbcType=VARCHAR}, #{usableRange,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrespTemplate" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrespTemplate">
     insert into chinese_medicine_presp_template
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -198,7 +199,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrespTemplateExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrespTemplateExample"
+            resultType="java.lang.Integer">
     select count(*) from chinese_medicine_presp_template
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -266,7 +268,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrespTemplate" >
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrespTemplate">
     update chinese_medicine_presp_template
     <set >
       <if test="creatorId != null" >
@@ -305,7 +308,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrespTemplate" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrespTemplate">
     update chinese_medicine_presp_template
     set creator_id = #{creatorId,jdbcType=INTEGER},
       creator_name = #{creatorName,jdbcType=VARCHAR},

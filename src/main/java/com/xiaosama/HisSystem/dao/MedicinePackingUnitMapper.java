@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.MedicinePackingUnit;
-import com.xiaosama.HisSystem.po.MedicinePackingUnitExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.MedicinePackingUnit;
+import com.xiaosama.HisSystem.pojo.po.MedicinePackingUnitExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface MedicinePackingUnitMapper {
     int countByExample(MedicinePackingUnitExample example);

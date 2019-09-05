@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.ApplyStatus;
-import com.xiaosama.HisSystem.po.ApplyStatusExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.ApplyStatus;
+import com.xiaosama.HisSystem.pojo.po.ApplyStatusExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface ApplyStatusMapper {
     int countByExample(ApplyStatusExample example);

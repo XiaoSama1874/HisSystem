@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.RegisterInfoMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.RegisterInfo" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.RegisterInfo">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="medical_id" property="medicalId" jdbcType="INTEGER" />
     <result column="patient_name" property="patientName" jdbcType="CHAR" />
@@ -78,7 +78,8 @@
     id, medical_id, patient_name, dept, register_level, doctor_id, doctor_name, settlement_type, 
     status, is_in_morning, is_need_medical_book, diagnose_date, create_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.RegisterInfoExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.RegisterInfoExample">
     select
     <if test="distinct" >
       distinct
@@ -102,13 +103,13 @@
     delete from register_info
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.RegisterInfoExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.RegisterInfoExample">
     delete from register_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.RegisterInfo" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.RegisterInfo">
     insert into register_info (id, medical_id, patient_name, 
       dept, register_level, doctor_id, 
       doctor_name, settlement_type, status, 
@@ -120,7 +121,7 @@
       #{isInMorning,jdbcType=BIT}, #{isNeedMedicalBook,jdbcType=BIT}, #{diagnoseDate,jdbcType=DATE}, 
       #{createTime,jdbcType=TIMESTAMP})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.RegisterInfo" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.RegisterInfo">
     insert into register_info
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -205,7 +206,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.RegisterInfoExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.RegisterInfoExample"
+            resultType="java.lang.Integer">
     select count(*) from register_info
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -277,7 +279,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.RegisterInfo" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.pojo.po.RegisterInfo">
     update register_info
     <set >
       <if test="medicalId != null" >
@@ -319,7 +321,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.RegisterInfo" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.RegisterInfo">
     update register_info
     set medical_id = #{medicalId,jdbcType=INTEGER},
       patient_name = #{patientName,jdbcType=CHAR},

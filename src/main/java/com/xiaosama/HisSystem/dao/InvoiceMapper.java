@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.Invoice;
-import com.xiaosama.HisSystem.po.InvoiceExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.Invoice;
+import com.xiaosama.HisSystem.pojo.po.InvoiceExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface InvoiceMapper {
     int countByExample(InvoiceExample example);

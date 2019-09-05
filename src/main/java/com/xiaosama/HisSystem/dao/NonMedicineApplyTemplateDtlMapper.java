@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtl;
-import com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtlExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.NonMedicineApplyTemplateDtl;
+import com.xiaosama.HisSystem.pojo.po.NonMedicineApplyTemplateDtlExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface NonMedicineApplyTemplateDtlMapper {
     int countByExample(NonMedicineApplyTemplateDtlExample example);

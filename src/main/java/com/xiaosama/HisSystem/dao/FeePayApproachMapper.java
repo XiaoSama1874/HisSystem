@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.FeePayApproach;
-import com.xiaosama.HisSystem.po.FeePayApproachExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.FeePayApproach;
+import com.xiaosama.HisSystem.pojo.po.FeePayApproachExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface FeePayApproachMapper {
     int countByExample(FeePayApproachExample example);

@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.DeptCategory;
-import com.xiaosama.HisSystem.po.DeptCategoryExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.DeptCategory;
+import com.xiaosama.HisSystem.pojo.po.DeptCategoryExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface DeptCategoryMapper {
     int countByExample(DeptCategoryExample example);

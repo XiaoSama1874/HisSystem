@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.DailySettlement;
-import com.xiaosama.HisSystem.po.DailySettlementExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.DailySettlement;
+import com.xiaosama.HisSystem.pojo.po.DailySettlementExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface DailySettlementMapper {
     int countByExample(DailySettlementExample example);

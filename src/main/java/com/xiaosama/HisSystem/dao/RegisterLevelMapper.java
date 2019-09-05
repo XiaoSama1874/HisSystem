@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.RegisterLevel;
-import com.xiaosama.HisSystem.po.RegisterLevelExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.RegisterLevel;
+import com.xiaosama.HisSystem.pojo.po.RegisterLevelExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface RegisterLevelMapper {
     int countByExample(RegisterLevelExample example);

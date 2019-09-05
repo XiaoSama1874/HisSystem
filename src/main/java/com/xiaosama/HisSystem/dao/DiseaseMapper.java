@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.Disease;
-import com.xiaosama.HisSystem.po.DiseaseExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.Disease;
+import com.xiaosama.HisSystem.pojo.po.DiseaseExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface DiseaseMapper {
     int countByExample(DiseaseExample example);

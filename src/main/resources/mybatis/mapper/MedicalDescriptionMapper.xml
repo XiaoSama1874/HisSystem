@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.MedicalDescriptionMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.MedicalDescription" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.MedicalDescription">
     <id column="register_id" property="registerId" jdbcType="INTEGER" />
     <result column="chief_complaint" property="chiefComplaint" jdbcType="VARCHAR" />
     <result column="past_history" property="pastHistory" jdbcType="VARCHAR" />
@@ -10,7 +10,8 @@
     <result column="check_advice" property="checkAdvice" jdbcType="VARCHAR" />
     <result column="announcement" property="announcement" jdbcType="VARCHAR" />
   </resultMap>
-  <resultMap id="ResultMapWithBLOBs" type="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" extends="BaseResultMap" >
+    <resultMap id="ResultMapWithBLOBs" type="com.xiaosama.HisSystem.pojo.po.MedicalDescriptionWithBLOBs"
+               extends="BaseResultMap">
     <result column="present_illness_history" property="presentIllnessHistory" jdbcType="LONGVARCHAR" />
     <result column="present_illness_diagnose" property="presentIllnessDiagnose" jdbcType="LONGVARCHAR" />
   </resultMap>
@@ -79,7 +80,8 @@
   <sql id="Blob_Column_List" >
     present_illness_history, present_illness_diagnose
   </sql>
-  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionExample" >
+    <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs"
+            parameterType="com.xiaosama.HisSystem.pojo.po.MedicalDescriptionExample">
     select
     <if test="distinct" >
       distinct
@@ -95,7 +97,8 @@
       order by ${orderByClause}
     </if>
   </select>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.MedicalDescriptionExample">
     select
     <if test="distinct" >
       distinct
@@ -121,13 +124,13 @@
     delete from medical_description
     where register_id = #{registerId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.MedicalDescriptionExample">
     delete from medical_description
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.MedicalDescriptionWithBLOBs">
     insert into medical_description (register_id, chief_complaint, past_history, 
       allergic_history, physical_examination, check_advice, 
       announcement, present_illness_history, 
@@ -137,7 +140,7 @@
       #{announcement,jdbcType=VARCHAR}, #{presentIllnessHistory,jdbcType=LONGVARCHAR}, 
       #{presentIllnessDiagnose,jdbcType=LONGVARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.MedicalDescriptionWithBLOBs">
     insert into medical_description
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="registerId != null" >
@@ -198,7 +201,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.MedicalDescriptionExample"
+            resultType="java.lang.Integer">
     select count(*) from medical_description
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -267,7 +271,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.pojo.po.MedicalDescriptionWithBLOBs">
     update medical_description
     <set >
       <if test="chiefComplaint != null" >
@@ -297,7 +301,7 @@
     </set>
     where register_id = #{registerId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" >
+    <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xiaosama.HisSystem.pojo.po.MedicalDescriptionWithBLOBs">
     update medical_description
     set chief_complaint = #{chiefComplaint,jdbcType=VARCHAR},
       past_history = #{pastHistory,jdbcType=VARCHAR},
@@ -309,7 +313,7 @@
       present_illness_diagnose = #{presentIllnessDiagnose,jdbcType=LONGVARCHAR}
     where register_id = #{registerId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.MedicalDescription" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.MedicalDescription">
     update medical_description
     set chief_complaint = #{chiefComplaint,jdbcType=VARCHAR},
       past_history = #{pastHistory,jdbcType=VARCHAR},

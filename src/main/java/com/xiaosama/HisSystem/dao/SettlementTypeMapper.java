@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.SettlementType;
-import com.xiaosama.HisSystem.po.SettlementTypeExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.SettlementType;
+import com.xiaosama.HisSystem.pojo.po.SettlementTypeExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface SettlementTypeMapper {
     int countByExample(SettlementTypeExample example);

@@ -1,10 +1,11 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.MedicalDescription;
-import com.xiaosama.HisSystem.po.MedicalDescriptionExample;
-import com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.MedicalDescription;
+import com.xiaosama.HisSystem.pojo.po.MedicalDescriptionExample;
+import com.xiaosama.HisSystem.pojo.po.MedicalDescriptionWithBLOBs;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface MedicalDescriptionMapper {
     int countByExample(MedicalDescriptionExample example);

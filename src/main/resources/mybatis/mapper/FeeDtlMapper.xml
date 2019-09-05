@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.FeeDtlMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.FeeDtl" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.FeeDtl">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="invoice_id" property="invoiceId" jdbcType="INTEGER" />
     <result column="register_id" property="registerId" jdbcType="INTEGER" />
@@ -75,7 +75,7 @@
     id, invoice_id, register_id, fee_name, is_medicine, unit_price, amount, pay_approach, 
     pay_return_time, operator_id
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.FeeDtlExample" >
+    <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.pojo.po.FeeDtlExample">
     select
     <if test="distinct" >
       distinct
@@ -99,13 +99,13 @@
     delete from fee_dtl
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.FeeDtlExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.FeeDtlExample">
     delete from fee_dtl
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.FeeDtl" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.FeeDtl">
     insert into fee_dtl (id, invoice_id, register_id, 
       fee_name, is_medicine, unit_price, 
       amount, pay_approach, pay_return_time, 
@@ -115,7 +115,7 @@
       #{amount,jdbcType=INTEGER}, #{payApproach,jdbcType=VARCHAR}, #{payReturnTime,jdbcType=TIMESTAMP}, 
       #{operatorId,jdbcType=INTEGER})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.FeeDtl" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.FeeDtl">
     insert into fee_dtl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -182,7 +182,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.FeeDtlExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.FeeDtlExample"
+            resultType="java.lang.Integer">
     select count(*) from fee_dtl
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -242,7 +243,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.FeeDtl" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.pojo.po.FeeDtl">
     update fee_dtl
     <set >
       <if test="invoiceId != null" >
@@ -275,7 +276,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.FeeDtl" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.FeeDtl">
     update fee_dtl
     set invoice_id = #{invoiceId,jdbcType=INTEGER},
       register_id = #{registerId,jdbcType=INTEGER},

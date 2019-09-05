@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.diseaseDiagnoseMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.diseaseDiagnose" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.diseaseDiagnose">
     <result column="register_id" property="registerId" jdbcType="INTEGER" />
     <result column="disease_id" property="diseaseId" jdbcType="INTEGER" />
     <result column="disease_name" property="diseaseName" jdbcType="VARCHAR" />
@@ -70,7 +70,8 @@
   <sql id="Base_Column_List" >
     register_id, disease_id, disease_name, is_final_diagnose, is_western_disease, happen_time
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.diseaseDiagnoseExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.diseaseDiagnoseExample">
     select
     <if test="distinct" >
       distinct
@@ -84,13 +85,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.diseaseDiagnoseExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.diseaseDiagnoseExample">
     delete from disease_diagnose
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.diseaseDiagnose" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.diseaseDiagnose">
     insert into disease_diagnose (register_id, disease_id, disease_name, 
       is_final_diagnose, is_western_disease, happen_time
       )
@@ -98,7 +99,7 @@
       #{isFinalDiagnose,jdbcType=BIT}, #{isWesternDisease,jdbcType=BIT}, #{happenTime,jdbcType=TIMESTAMP}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.diseaseDiagnose" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.diseaseDiagnose">
     insert into disease_diagnose
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="registerId != null" >
@@ -141,7 +142,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.diseaseDiagnoseExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.diseaseDiagnoseExample"
+            resultType="java.lang.Integer">
     select count(*) from disease_diagnose
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

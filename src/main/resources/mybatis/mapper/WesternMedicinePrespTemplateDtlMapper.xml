@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.WesternMedicinePrespTemplateDtlMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateDtl" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateDtl">
     <result column="prescription_id" property="prescriptionId" jdbcType="INTEGER" />
     <result column="medicine_id" property="medicineId" jdbcType="INTEGER" />
     <result column="medicine_name" property="medicineName" jdbcType="VARCHAR" />
@@ -70,7 +70,8 @@
   <sql id="Base_Column_List" >
     prescription_id, medicine_id, medicine_name, instruction, dosage, frequency
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateDtlExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateDtlExample">
     select
     <if test="distinct" >
       distinct
@@ -84,13 +85,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateDtlExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateDtlExample">
     delete from western_medicine_presp_templatedtl
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateDtl" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateDtl">
     insert into western_medicine_presp_templatedtl (prescription_id, medicine_id, medicine_name, 
       instruction, dosage, frequency
       )
@@ -98,7 +99,7 @@
       #{instruction,jdbcType=VARCHAR}, #{dosage,jdbcType=VARCHAR}, #{frequency,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateDtl" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateDtl">
     insert into western_medicine_presp_templatedtl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="prescriptionId != null" >
@@ -141,7 +142,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.WesternMedicinePrespTemplateDtlExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrespTemplateDtlExample"
+            resultType="java.lang.Integer">
     select count(*) from western_medicine_presp_templatedtl
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

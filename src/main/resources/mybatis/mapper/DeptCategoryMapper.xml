@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.DeptCategoryMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.DeptCategory" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.DeptCategory">
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="value" property="value" jdbcType="CHAR" />
   </resultMap>
@@ -66,7 +66,8 @@
   <sql id="Base_Column_List" >
     id, value
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.DeptCategoryExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.DeptCategoryExample">
     select
     <if test="distinct" >
       distinct
@@ -90,17 +91,17 @@
     delete from dept_category
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.DeptCategoryExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.DeptCategoryExample">
     delete from dept_category
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.DeptCategory" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.DeptCategory">
     insert into dept_category (id, value)
     values (#{id,jdbcType=INTEGER}, #{value,jdbcType=CHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.DeptCategory" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.DeptCategory">
     insert into dept_category
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -119,7 +120,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.DeptCategoryExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.DeptCategoryExample"
+            resultType="java.lang.Integer">
     select count(*) from dept_category
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -147,7 +149,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.DeptCategory" >
+    <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.pojo.po.DeptCategory">
     update dept_category
     <set >
       <if test="value != null" >
@@ -156,7 +158,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.DeptCategory" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.DeptCategory">
     update dept_category
     set value = #{value,jdbcType=CHAR}
     where id = #{id,jdbcType=INTEGER}

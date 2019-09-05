@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.ChineseMedicinePrescriptionDtlMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtl">
     <id column="prescription_id" property="prescriptionId" jdbcType="INTEGER" />
     <result column="medicine_id" property="medicineId" jdbcType="INTEGER" />
     <result column="medicine_name" property="medicineName" jdbcType="VARCHAR" />
@@ -70,7 +70,8 @@
   <sql id="Base_Column_List" >
     prescription_id, medicine_id, medicine_name, dosage, subscript, status
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtlExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtlExample">
     select
     <if test="distinct" >
       distinct
@@ -94,13 +95,13 @@
     delete from chinese_medicine_prescriptiondtl
     where prescription_id = #{prescriptionId,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtlExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtlExample">
     delete from chinese_medicine_prescriptiondtl
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtl">
     insert into chinese_medicine_prescriptiondtl (prescription_id, medicine_id, medicine_name, 
       dosage, subscript, status
       )
@@ -108,7 +109,7 @@
       #{dosage,jdbcType=VARCHAR}, #{subscript,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtl">
     insert into chinese_medicine_prescriptiondtl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="prescriptionId != null" >
@@ -151,7 +152,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtlExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtlExample"
+            resultType="java.lang.Integer">
     select count(*) from chinese_medicine_prescriptiondtl
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
@@ -195,7 +197,8 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    <update id="updateByPrimaryKeySelective"
+            parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtl">
     update chinese_medicine_prescriptiondtl
     <set >
       <if test="medicineId != null" >
@@ -216,7 +219,7 @@
     </set>
     where prescription_id = #{prescriptionId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.pojo.po.ChineseMedicinePrescriptionDtl">
     update chinese_medicine_prescriptiondtl
     set medicine_id = #{medicineId,jdbcType=INTEGER},
       medicine_name = #{medicineName,jdbcType=VARCHAR},

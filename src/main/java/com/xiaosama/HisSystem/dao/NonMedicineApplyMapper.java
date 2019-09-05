@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.NonMedicineApply;
-import com.xiaosama.HisSystem.po.NonMedicineApplyExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.NonMedicineApply;
+import com.xiaosama.HisSystem.pojo.po.NonMedicineApplyExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface NonMedicineApplyMapper {
     int countByExample(NonMedicineApplyExample example);

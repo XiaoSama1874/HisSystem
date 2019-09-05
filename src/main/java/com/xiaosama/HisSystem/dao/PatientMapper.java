@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.Patient;
-import com.xiaosama.HisSystem.po.PatientExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.Patient;
+import com.xiaosama.HisSystem.pojo.po.PatientExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface PatientMapper {
     int countByExample(PatientExample example);

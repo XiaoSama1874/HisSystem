@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.RegisterStatus;
-import com.xiaosama.HisSystem.po.RegisterStatusExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.RegisterStatus;
+import com.xiaosama.HisSystem.pojo.po.RegisterStatusExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface RegisterStatusMapper {
     int countByExample(RegisterStatusExample example);

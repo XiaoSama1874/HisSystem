@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.NonMedicineApplyMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.NonMedicineApply" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.NonMedicineApply">
     <result column="register_id" property="registerId" jdbcType="INTEGER" />
     <result column="non_medicine_id" property="nonMedicineId" jdbcType="INTEGER" />
     <result column="name" property="name" jdbcType="VARCHAR" />
@@ -78,7 +78,8 @@
     register_id, non_medicine_id, name, request, check_part, is_emergent, create_time, 
     inspector_id, inspector_name, check_time, check_result, check_type, status
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApplyExample">
     select
     <if test="distinct" >
       distinct
@@ -92,13 +93,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApplyExample">
     delete from non_medicine_apply
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.NonMedicineApply" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApply">
     insert into non_medicine_apply (register_id, non_medicine_id, name, 
       request, check_part, is_emergent, 
       create_time, inspector_id, inspector_name, 
@@ -110,7 +111,7 @@
       #{checkTime,jdbcType=TIMESTAMP}, #{checkResult,jdbcType=VARCHAR}, #{checkType,jdbcType=VARCHAR}, 
       #{status,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.NonMedicineApply" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApply">
     insert into non_medicine_apply
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="registerId != null" >
@@ -195,7 +196,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApplyExample"
+            resultType="java.lang.Integer">
     select count(*) from non_medicine_apply
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

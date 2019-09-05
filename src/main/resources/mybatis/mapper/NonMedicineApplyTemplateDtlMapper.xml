@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.xiaosama.HisSystem.dao.NonMedicineApplyTemplateDtlMapper" >
-  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtl" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.NonMedicineApplyTemplateDtl">
     <result column="template_id" property="templateId" jdbcType="INTEGER" />
     <result column="apply_id" property="applyId" jdbcType="INTEGER" />
     <result column="apply_type" property="applyType" jdbcType="VARCHAR" />
@@ -71,7 +71,8 @@
   <sql id="Base_Column_List" >
     template_id, apply_id, apply_type, name, request, check_part, is_emergent
   </sql>
-  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtlExample" >
+    <select id="selectByExample" resultMap="BaseResultMap"
+            parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApplyTemplateDtlExample">
     select
     <if test="distinct" >
       distinct
@@ -85,13 +86,13 @@
       order by ${orderByClause}
     </if>
   </select>
-  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtlExample" >
+    <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApplyTemplateDtlExample">
     delete from non_medicine_apply_templatedtl
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtl" >
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApplyTemplateDtl">
     insert into non_medicine_apply_templatedtl (template_id, apply_id, apply_type, 
       name, request, check_part, 
       is_emergent)
@@ -99,7 +100,7 @@
       #{name,jdbcType=VARCHAR}, #{request,jdbcType=VARCHAR}, #{checkPart,jdbcType=VARCHAR}, 
       #{isEmergent,jdbcType=BIT})
   </insert>
-  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtl" >
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApplyTemplateDtl">
     insert into non_medicine_apply_templatedtl
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="templateId != null" >
@@ -148,7 +149,8 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtlExample" resultType="java.lang.Integer" >
+    <select id="countByExample" parameterType="com.xiaosama.HisSystem.pojo.po.NonMedicineApplyTemplateDtlExample"
+            resultType="java.lang.Integer">
     select count(*) from non_medicine_apply_templatedtl
     <if test="_parameter != null" >
       <include refid="Example_Where_Clause" />

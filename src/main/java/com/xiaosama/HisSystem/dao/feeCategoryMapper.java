@@ -1,9 +1,10 @@
 package com.xiaosama.HisSystem.dao;
 
-import com.xiaosama.HisSystem.po.feeCategory;
-import com.xiaosama.HisSystem.po.feeCategoryExample;
-import java.util.List;
+import com.xiaosama.HisSystem.pojo.po.feeCategory;
+import com.xiaosama.HisSystem.pojo.po.feeCategoryExample;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface feeCategoryMapper {
     int countByExample(feeCategoryExample example);
