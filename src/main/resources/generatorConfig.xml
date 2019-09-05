@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+        PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+        "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+
+<generatorConfiguration>
+    <classPathEntry location="C:\Users\xiaobin\.m2\repository\mysql\mysql-connector-java\8.0.17\mysql-connector-java-8.0.17.jar"/>
+    <!--指定特定数据库的jdbc驱动jar包的位置千万千万要指定正确,不然就创建不了文件-->
+    <context id="DB2Tables" targetRuntime="MyBatis3">
+        <commentGenerator>
+            <property name="suppressAllComments" value="true"/>
+        </commentGenerator>
+
+        <!--配置数据库连接信息  -->
+        <jdbcConnection driverClass="com.mysql.cj.jdbc.Driver"
+                        connectionURL="jdbc:mysql://localhost:3306/his_system?serverTimezone=GMT"
+                        userId="root"
+                        password="xiaobin123">
+        </jdbcConnection>
+
+        <javaTypeResolver>
+            <property name="forceBigDecimals" value="false"/>
+        </javaTypeResolver>
+
+        <!--指定javaBean生成的位置  -->
+        <javaModelGenerator
+                targetPackage="com.xiaosama.HisSystem.po"
+                targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+            <property name="trimStrings" value="true"/>
+        </javaModelGenerator>
+
+
+        <!--指定sql映射文件生成的位置  -->
+        <sqlMapGenerator
+                targetPackage="mybatis.mapper"
+                targetProject=".\src\main\resources">
+            <property name="enableSubPackages" value="true"/>
+        </sqlMapGenerator>
+
+
+        <!--指定dao接口生成的位置 .mapper接口  -->
+        <javaClientGenerator type="XMLMAPPER"
+                             targetPackage="com.xiaosama.HisSystem.dao"
+                             targetProject=".\src\main\java">
+            <property name="enableSubPackages" value="true"/>
+        </javaClientGenerator>
+
+        <table tableName="dept" domainObjectName="Dept"/>
+        <table tableName="apply_status" domainObjectName="ApplyStatus"/>
+        <table tableName="chinese_medicine_prescription" domainObjectName="ChineseMedicinePrescription"/>
+        <table tableName="chinese_medicine_prescriptiondtl" domainObjectName="ChineseMedicinePrescriptionDtl"/>
+        <table tableName="chinese_medicine_presp_template" domainObjectName="ChineseMedicinePrespTemplate"/>
+        <table tableName="chinese_medicine_presp_templatedtl" domainObjectName="chineseMedicinePrespTemplateDtl"/>
+        <table tableName="chinese_prescription_category" domainObjectName="chinesePrescriptionCategory"/>
+        <table tableName="daily_settlement" domainObjectName="DailySettlement"/>
+        <table tableName="dept" domainObjectName="Dept"/>
+        <table tableName="dept_category" domainObjectName="DeptCategory"/>
+        <table tableName="dept_type" domainObjectName="DeptType"/>
+        <table tableName="disease" domainObjectName="Disease"/>
+        <table tableName="disease_category" domainObjectName="diseaseCategory"/>
+        <table tableName="disease_diagnose" domainObjectName="diseaseDiagnose"/>
+        <table tableName="doctor" domainObjectName="Doctor"/>
+        <table tableName="doctor_medical_level" domainObjectName="DoctorMedicalLevel"/>
+        <table tableName="fee_category" domainObjectName="feeCategory"/>
+        <table tableName="fee_dtl" domainObjectName="FeeDtl"/>
+        <table tableName="fee_pay_approach" domainObjectName="FeePayApproach"/>
+        <table tableName="invoice" domainObjectName="Invoice"/>
+        <table tableName="medical_description" domainObjectName="MedicalDescription"/>
+        <table tableName="medicine" domainObjectName="Medicine"/>
+        <table tableName="medicine_dosage_form" domainObjectName="MedicineDosageForm"/>
+        <table tableName="medicine_packing_unit" domainObjectName="MedicinePackingUnit"/>
+        <table tableName="non_medicine" domainObjectName="NonMedicine"/>
+        <table tableName="non_medicine_apply" domainObjectName="NonMedicineApply"/>
+        <table tableName="non_medicine_apply_template" domainObjectName="NonMedicineApplyTemplate"/>
+        <table tableName="non_medicine_apply_templatedtl" domainObjectName="NonMedicineApplyTemplateDtl"/>
+        <table tableName="patient" domainObjectName="Patient"/>
+        <table tableName="prescription_status" domainObjectName="PrescriptionStatus"/>
+        <table tableName="register_info" domainObjectName="RegisterInfo"/>
+        <table tableName="register_level" domainObjectName="RegisterLevel"/>
+        <table tableName="register_status" domainObjectName="RegisterStatus"/>
+        <table tableName="schedule_result" domainObjectName="ScheduleResult"/>
+        <table tableName="schedule_rule" domainObjectName="ScheduleRule"/>
+        <table tableName="settlement_type" domainObjectName="SettlementType"/>
+        <table tableName="template_usable_range" domainObjectName="TemplateUsableRange"/>
+        <table tableName="his_user" domainObjectName="User"/>
+        <table tableName="his_user_type" domainObjectName="UserType"/>
+        <table tableName="western_medicine_prescription" domainObjectName="WesternMedicinePrescription"/>
+        <table tableName="western_medicine_prescriptiondtl" domainObjectName="WesternMedicinePrescriptionDtl"/>
+        <table tableName="western_medicine_presp_template" domainObjectName="WesternMedicinePrespTemplate"/>
+        <table tableName="western_medicine_presp_templatedtl" domainObjectName="WesternMedicinePrespTemplateDtl"/>
+
+    </context>
+</generatorConfiguration>

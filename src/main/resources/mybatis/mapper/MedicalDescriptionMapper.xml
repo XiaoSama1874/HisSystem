@@ -1,0 +1,322 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaosama.HisSystem.dao.MedicalDescriptionMapper" >
+  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.MedicalDescription" >
+    <id column="register_id" property="registerId" jdbcType="INTEGER" />
+    <result column="chief_complaint" property="chiefComplaint" jdbcType="VARCHAR" />
+    <result column="past_history" property="pastHistory" jdbcType="VARCHAR" />
+    <result column="allergic_history" property="allergicHistory" jdbcType="VARCHAR" />
+    <result column="physical_examination" property="physicalExamination" jdbcType="VARCHAR" />
+    <result column="check_advice" property="checkAdvice" jdbcType="VARCHAR" />
+    <result column="announcement" property="announcement" jdbcType="VARCHAR" />
+  </resultMap>
+  <resultMap id="ResultMapWithBLOBs" type="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" extends="BaseResultMap" >
+    <result column="present_illness_history" property="presentIllnessHistory" jdbcType="LONGVARCHAR" />
+    <result column="present_illness_diagnose" property="presentIllnessDiagnose" jdbcType="LONGVARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    register_id, chief_complaint, past_history, allergic_history, physical_examination, 
+    check_advice, announcement
+  </sql>
+  <sql id="Blob_Column_List" >
+    present_illness_history, present_illness_diagnose
+  </sql>
+  <select id="selectByExampleWithBLOBs" resultMap="ResultMapWithBLOBs" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from medical_description
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from medical_description
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="ResultMapWithBLOBs" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    ,
+    <include refid="Blob_Column_List" />
+    from medical_description
+    where register_id = #{registerId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from medical_description
+    where register_id = #{registerId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionExample" >
+    delete from medical_description
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" >
+    insert into medical_description (register_id, chief_complaint, past_history, 
+      allergic_history, physical_examination, check_advice, 
+      announcement, present_illness_history, 
+      present_illness_diagnose)
+    values (#{registerId,jdbcType=INTEGER}, #{chiefComplaint,jdbcType=VARCHAR}, #{pastHistory,jdbcType=VARCHAR}, 
+      #{allergicHistory,jdbcType=VARCHAR}, #{physicalExamination,jdbcType=VARCHAR}, #{checkAdvice,jdbcType=VARCHAR}, 
+      #{announcement,jdbcType=VARCHAR}, #{presentIllnessHistory,jdbcType=LONGVARCHAR}, 
+      #{presentIllnessDiagnose,jdbcType=LONGVARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" >
+    insert into medical_description
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="registerId != null" >
+        register_id,
+      </if>
+      <if test="chiefComplaint != null" >
+        chief_complaint,
+      </if>
+      <if test="pastHistory != null" >
+        past_history,
+      </if>
+      <if test="allergicHistory != null" >
+        allergic_history,
+      </if>
+      <if test="physicalExamination != null" >
+        physical_examination,
+      </if>
+      <if test="checkAdvice != null" >
+        check_advice,
+      </if>
+      <if test="announcement != null" >
+        announcement,
+      </if>
+      <if test="presentIllnessHistory != null" >
+        present_illness_history,
+      </if>
+      <if test="presentIllnessDiagnose != null" >
+        present_illness_diagnose,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="registerId != null" >
+        #{registerId,jdbcType=INTEGER},
+      </if>
+      <if test="chiefComplaint != null" >
+        #{chiefComplaint,jdbcType=VARCHAR},
+      </if>
+      <if test="pastHistory != null" >
+        #{pastHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="allergicHistory != null" >
+        #{allergicHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="physicalExamination != null" >
+        #{physicalExamination,jdbcType=VARCHAR},
+      </if>
+      <if test="checkAdvice != null" >
+        #{checkAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="announcement != null" >
+        #{announcement,jdbcType=VARCHAR},
+      </if>
+      <if test="presentIllnessHistory != null" >
+        #{presentIllnessHistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="presentIllnessDiagnose != null" >
+        #{presentIllnessDiagnose,jdbcType=LONGVARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionExample" resultType="java.lang.Integer" >
+    select count(*) from medical_description
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update medical_description
+    <set >
+      <if test="record.registerId != null" >
+        register_id = #{record.registerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.chiefComplaint != null" >
+        chief_complaint = #{record.chiefComplaint,jdbcType=VARCHAR},
+      </if>
+      <if test="record.pastHistory != null" >
+        past_history = #{record.pastHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.allergicHistory != null" >
+        allergic_history = #{record.allergicHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="record.physicalExamination != null" >
+        physical_examination = #{record.physicalExamination,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkAdvice != null" >
+        check_advice = #{record.checkAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="record.announcement != null" >
+        announcement = #{record.announcement,jdbcType=VARCHAR},
+      </if>
+      <if test="record.presentIllnessHistory != null" >
+        present_illness_history = #{record.presentIllnessHistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="record.presentIllnessDiagnose != null" >
+        present_illness_diagnose = #{record.presentIllnessDiagnose,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExampleWithBLOBs" parameterType="map" >
+    update medical_description
+    set register_id = #{record.registerId,jdbcType=INTEGER},
+      chief_complaint = #{record.chiefComplaint,jdbcType=VARCHAR},
+      past_history = #{record.pastHistory,jdbcType=VARCHAR},
+      allergic_history = #{record.allergicHistory,jdbcType=VARCHAR},
+      physical_examination = #{record.physicalExamination,jdbcType=VARCHAR},
+      check_advice = #{record.checkAdvice,jdbcType=VARCHAR},
+      announcement = #{record.announcement,jdbcType=VARCHAR},
+      present_illness_history = #{record.presentIllnessHistory,jdbcType=LONGVARCHAR},
+      present_illness_diagnose = #{record.presentIllnessDiagnose,jdbcType=LONGVARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update medical_description
+    set register_id = #{record.registerId,jdbcType=INTEGER},
+      chief_complaint = #{record.chiefComplaint,jdbcType=VARCHAR},
+      past_history = #{record.pastHistory,jdbcType=VARCHAR},
+      allergic_history = #{record.allergicHistory,jdbcType=VARCHAR},
+      physical_examination = #{record.physicalExamination,jdbcType=VARCHAR},
+      check_advice = #{record.checkAdvice,jdbcType=VARCHAR},
+      announcement = #{record.announcement,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" >
+    update medical_description
+    <set >
+      <if test="chiefComplaint != null" >
+        chief_complaint = #{chiefComplaint,jdbcType=VARCHAR},
+      </if>
+      <if test="pastHistory != null" >
+        past_history = #{pastHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="allergicHistory != null" >
+        allergic_history = #{allergicHistory,jdbcType=VARCHAR},
+      </if>
+      <if test="physicalExamination != null" >
+        physical_examination = #{physicalExamination,jdbcType=VARCHAR},
+      </if>
+      <if test="checkAdvice != null" >
+        check_advice = #{checkAdvice,jdbcType=VARCHAR},
+      </if>
+      <if test="announcement != null" >
+        announcement = #{announcement,jdbcType=VARCHAR},
+      </if>
+      <if test="presentIllnessHistory != null" >
+        present_illness_history = #{presentIllnessHistory,jdbcType=LONGVARCHAR},
+      </if>
+      <if test="presentIllnessDiagnose != null" >
+        present_illness_diagnose = #{presentIllnessDiagnose,jdbcType=LONGVARCHAR},
+      </if>
+    </set>
+    where register_id = #{registerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKeyWithBLOBs" parameterType="com.xiaosama.HisSystem.po.MedicalDescriptionWithBLOBs" >
+    update medical_description
+    set chief_complaint = #{chiefComplaint,jdbcType=VARCHAR},
+      past_history = #{pastHistory,jdbcType=VARCHAR},
+      allergic_history = #{allergicHistory,jdbcType=VARCHAR},
+      physical_examination = #{physicalExamination,jdbcType=VARCHAR},
+      check_advice = #{checkAdvice,jdbcType=VARCHAR},
+      announcement = #{announcement,jdbcType=VARCHAR},
+      present_illness_history = #{presentIllnessHistory,jdbcType=LONGVARCHAR},
+      present_illness_diagnose = #{presentIllnessDiagnose,jdbcType=LONGVARCHAR}
+    where register_id = #{registerId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.MedicalDescription" >
+    update medical_description
+    set chief_complaint = #{chiefComplaint,jdbcType=VARCHAR},
+      past_history = #{pastHistory,jdbcType=VARCHAR},
+      allergic_history = #{allergicHistory,jdbcType=VARCHAR},
+      physical_examination = #{physicalExamination,jdbcType=VARCHAR},
+      check_advice = #{checkAdvice,jdbcType=VARCHAR},
+      announcement = #{announcement,jdbcType=VARCHAR}
+    where register_id = #{registerId,jdbcType=INTEGER}
+  </update>
+</mapper>

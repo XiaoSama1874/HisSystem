@@ -1,0 +1,228 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaosama.HisSystem.dao.ChineseMedicinePrescriptionDtlMapper" >
+  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    <id column="prescription_id" property="prescriptionId" jdbcType="INTEGER" />
+    <result column="medicine_id" property="medicineId" jdbcType="INTEGER" />
+    <result column="medicine_name" property="medicineName" jdbcType="VARCHAR" />
+    <result column="dosage" property="dosage" jdbcType="VARCHAR" />
+    <result column="subscript" property="subscript" jdbcType="VARCHAR" />
+    <result column="status" property="status" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    prescription_id, medicine_id, medicine_name, dosage, subscript, status
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtlExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from chinese_medicine_prescriptiondtl
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from chinese_medicine_prescriptiondtl
+    where prescription_id = #{prescriptionId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from chinese_medicine_prescriptiondtl
+    where prescription_id = #{prescriptionId,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtlExample" >
+    delete from chinese_medicine_prescriptiondtl
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    insert into chinese_medicine_prescriptiondtl (prescription_id, medicine_id, medicine_name, 
+      dosage, subscript, status
+      )
+    values (#{prescriptionId,jdbcType=INTEGER}, #{medicineId,jdbcType=INTEGER}, #{medicineName,jdbcType=VARCHAR}, 
+      #{dosage,jdbcType=VARCHAR}, #{subscript,jdbcType=VARCHAR}, #{status,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    insert into chinese_medicine_prescriptiondtl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="prescriptionId != null" >
+        prescription_id,
+      </if>
+      <if test="medicineId != null" >
+        medicine_id,
+      </if>
+      <if test="medicineName != null" >
+        medicine_name,
+      </if>
+      <if test="dosage != null" >
+        dosage,
+      </if>
+      <if test="subscript != null" >
+        subscript,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="prescriptionId != null" >
+        #{prescriptionId,jdbcType=INTEGER},
+      </if>
+      <if test="medicineId != null" >
+        #{medicineId,jdbcType=INTEGER},
+      </if>
+      <if test="medicineName != null" >
+        #{medicineName,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null" >
+        #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="subscript != null" >
+        #{subscript,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtlExample" resultType="java.lang.Integer" >
+    select count(*) from chinese_medicine_prescriptiondtl
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update chinese_medicine_prescriptiondtl
+    <set >
+      <if test="record.prescriptionId != null" >
+        prescription_id = #{record.prescriptionId,jdbcType=INTEGER},
+      </if>
+      <if test="record.medicineId != null" >
+        medicine_id = #{record.medicineId,jdbcType=INTEGER},
+      </if>
+      <if test="record.medicineName != null" >
+        medicine_name = #{record.medicineName,jdbcType=VARCHAR},
+      </if>
+      <if test="record.dosage != null" >
+        dosage = #{record.dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="record.subscript != null" >
+        subscript = #{record.subscript,jdbcType=VARCHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update chinese_medicine_prescriptiondtl
+    set prescription_id = #{record.prescriptionId,jdbcType=INTEGER},
+      medicine_id = #{record.medicineId,jdbcType=INTEGER},
+      medicine_name = #{record.medicineName,jdbcType=VARCHAR},
+      dosage = #{record.dosage,jdbcType=VARCHAR},
+      subscript = #{record.subscript,jdbcType=VARCHAR},
+      status = #{record.status,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    update chinese_medicine_prescriptiondtl
+    <set >
+      <if test="medicineId != null" >
+        medicine_id = #{medicineId,jdbcType=INTEGER},
+      </if>
+      <if test="medicineName != null" >
+        medicine_name = #{medicineName,jdbcType=VARCHAR},
+      </if>
+      <if test="dosage != null" >
+        dosage = #{dosage,jdbcType=VARCHAR},
+      </if>
+      <if test="subscript != null" >
+        subscript = #{subscript,jdbcType=VARCHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where prescription_id = #{prescriptionId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.ChineseMedicinePrescriptionDtl" >
+    update chinese_medicine_prescriptiondtl
+    set medicine_id = #{medicineId,jdbcType=INTEGER},
+      medicine_name = #{medicineName,jdbcType=VARCHAR},
+      dosage = #{dosage,jdbcType=VARCHAR},
+      subscript = #{subscript,jdbcType=VARCHAR},
+      status = #{status,jdbcType=VARCHAR}
+    where prescription_id = #{prescriptionId,jdbcType=INTEGER}
+  </update>
+</mapper>

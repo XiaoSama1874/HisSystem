@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaosama.HisSystem.dao.RegisterInfoMapper" >
+  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.RegisterInfo" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="medical_id" property="medicalId" jdbcType="INTEGER" />
+    <result column="patient_name" property="patientName" jdbcType="CHAR" />
+    <result column="dept" property="dept" jdbcType="VARCHAR" />
+    <result column="register_level" property="registerLevel" jdbcType="VARCHAR" />
+    <result column="doctor_id" property="doctorId" jdbcType="INTEGER" />
+    <result column="doctor_name" property="doctorName" jdbcType="CHAR" />
+    <result column="settlement_type" property="settlementType" jdbcType="CHAR" />
+    <result column="status" property="status" jdbcType="CHAR" />
+    <result column="is_in_morning" property="isInMorning" jdbcType="BIT" />
+    <result column="is_need_medical_book" property="isNeedMedicalBook" jdbcType="BIT" />
+    <result column="diagnose_date" property="diagnoseDate" jdbcType="DATE" />
+    <result column="create_time" property="createTime" jdbcType="TIMESTAMP" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    id, medical_id, patient_name, dept, register_level, doctor_id, doctor_name, settlement_type, 
+    status, is_in_morning, is_need_medical_book, diagnose_date, create_time
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.RegisterInfoExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from register_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from register_info
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from register_info
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.RegisterInfoExample" >
+    delete from register_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.RegisterInfo" >
+    insert into register_info (id, medical_id, patient_name, 
+      dept, register_level, doctor_id, 
+      doctor_name, settlement_type, status, 
+      is_in_morning, is_need_medical_book, diagnose_date, 
+      create_time)
+    values (#{id,jdbcType=INTEGER}, #{medicalId,jdbcType=INTEGER}, #{patientName,jdbcType=CHAR}, 
+      #{dept,jdbcType=VARCHAR}, #{registerLevel,jdbcType=VARCHAR}, #{doctorId,jdbcType=INTEGER}, 
+      #{doctorName,jdbcType=CHAR}, #{settlementType,jdbcType=CHAR}, #{status,jdbcType=CHAR}, 
+      #{isInMorning,jdbcType=BIT}, #{isNeedMedicalBook,jdbcType=BIT}, #{diagnoseDate,jdbcType=DATE}, 
+      #{createTime,jdbcType=TIMESTAMP})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.RegisterInfo" >
+    insert into register_info
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="medicalId != null" >
+        medical_id,
+      </if>
+      <if test="patientName != null" >
+        patient_name,
+      </if>
+      <if test="dept != null" >
+        dept,
+      </if>
+      <if test="registerLevel != null" >
+        register_level,
+      </if>
+      <if test="doctorId != null" >
+        doctor_id,
+      </if>
+      <if test="doctorName != null" >
+        doctor_name,
+      </if>
+      <if test="settlementType != null" >
+        settlement_type,
+      </if>
+      <if test="status != null" >
+        status,
+      </if>
+      <if test="isInMorning != null" >
+        is_in_morning,
+      </if>
+      <if test="isNeedMedicalBook != null" >
+        is_need_medical_book,
+      </if>
+      <if test="diagnoseDate != null" >
+        diagnose_date,
+      </if>
+      <if test="createTime != null" >
+        create_time,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="medicalId != null" >
+        #{medicalId,jdbcType=INTEGER},
+      </if>
+      <if test="patientName != null" >
+        #{patientName,jdbcType=CHAR},
+      </if>
+      <if test="dept != null" >
+        #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="registerLevel != null" >
+        #{registerLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorId != null" >
+        #{doctorId,jdbcType=INTEGER},
+      </if>
+      <if test="doctorName != null" >
+        #{doctorName,jdbcType=CHAR},
+      </if>
+      <if test="settlementType != null" >
+        #{settlementType,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=CHAR},
+      </if>
+      <if test="isInMorning != null" >
+        #{isInMorning,jdbcType=BIT},
+      </if>
+      <if test="isNeedMedicalBook != null" >
+        #{isNeedMedicalBook,jdbcType=BIT},
+      </if>
+      <if test="diagnoseDate != null" >
+        #{diagnoseDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null" >
+        #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.RegisterInfoExample" resultType="java.lang.Integer" >
+    select count(*) from register_info
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update register_info
+    <set >
+      <if test="record.id != null" >
+        id = #{record.id,jdbcType=INTEGER},
+      </if>
+      <if test="record.medicalId != null" >
+        medical_id = #{record.medicalId,jdbcType=INTEGER},
+      </if>
+      <if test="record.patientName != null" >
+        patient_name = #{record.patientName,jdbcType=CHAR},
+      </if>
+      <if test="record.dept != null" >
+        dept = #{record.dept,jdbcType=VARCHAR},
+      </if>
+      <if test="record.registerLevel != null" >
+        register_level = #{record.registerLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="record.doctorId != null" >
+        doctor_id = #{record.doctorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.doctorName != null" >
+        doctor_name = #{record.doctorName,jdbcType=CHAR},
+      </if>
+      <if test="record.settlementType != null" >
+        settlement_type = #{record.settlementType,jdbcType=CHAR},
+      </if>
+      <if test="record.status != null" >
+        status = #{record.status,jdbcType=CHAR},
+      </if>
+      <if test="record.isInMorning != null" >
+        is_in_morning = #{record.isInMorning,jdbcType=BIT},
+      </if>
+      <if test="record.isNeedMedicalBook != null" >
+        is_need_medical_book = #{record.isNeedMedicalBook,jdbcType=BIT},
+      </if>
+      <if test="record.diagnoseDate != null" >
+        diagnose_date = #{record.diagnoseDate,jdbcType=DATE},
+      </if>
+      <if test="record.createTime != null" >
+        create_time = #{record.createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update register_info
+    set id = #{record.id,jdbcType=INTEGER},
+      medical_id = #{record.medicalId,jdbcType=INTEGER},
+      patient_name = #{record.patientName,jdbcType=CHAR},
+      dept = #{record.dept,jdbcType=VARCHAR},
+      register_level = #{record.registerLevel,jdbcType=VARCHAR},
+      doctor_id = #{record.doctorId,jdbcType=INTEGER},
+      doctor_name = #{record.doctorName,jdbcType=CHAR},
+      settlement_type = #{record.settlementType,jdbcType=CHAR},
+      status = #{record.status,jdbcType=CHAR},
+      is_in_morning = #{record.isInMorning,jdbcType=BIT},
+      is_need_medical_book = #{record.isNeedMedicalBook,jdbcType=BIT},
+      diagnose_date = #{record.diagnoseDate,jdbcType=DATE},
+      create_time = #{record.createTime,jdbcType=TIMESTAMP}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.RegisterInfo" >
+    update register_info
+    <set >
+      <if test="medicalId != null" >
+        medical_id = #{medicalId,jdbcType=INTEGER},
+      </if>
+      <if test="patientName != null" >
+        patient_name = #{patientName,jdbcType=CHAR},
+      </if>
+      <if test="dept != null" >
+        dept = #{dept,jdbcType=VARCHAR},
+      </if>
+      <if test="registerLevel != null" >
+        register_level = #{registerLevel,jdbcType=VARCHAR},
+      </if>
+      <if test="doctorId != null" >
+        doctor_id = #{doctorId,jdbcType=INTEGER},
+      </if>
+      <if test="doctorName != null" >
+        doctor_name = #{doctorName,jdbcType=CHAR},
+      </if>
+      <if test="settlementType != null" >
+        settlement_type = #{settlementType,jdbcType=CHAR},
+      </if>
+      <if test="status != null" >
+        status = #{status,jdbcType=CHAR},
+      </if>
+      <if test="isInMorning != null" >
+        is_in_morning = #{isInMorning,jdbcType=BIT},
+      </if>
+      <if test="isNeedMedicalBook != null" >
+        is_need_medical_book = #{isNeedMedicalBook,jdbcType=BIT},
+      </if>
+      <if test="diagnoseDate != null" >
+        diagnose_date = #{diagnoseDate,jdbcType=DATE},
+      </if>
+      <if test="createTime != null" >
+        create_time = #{createTime,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.RegisterInfo" >
+    update register_info
+    set medical_id = #{medicalId,jdbcType=INTEGER},
+      patient_name = #{patientName,jdbcType=CHAR},
+      dept = #{dept,jdbcType=VARCHAR},
+      register_level = #{registerLevel,jdbcType=VARCHAR},
+      doctor_id = #{doctorId,jdbcType=INTEGER},
+      doctor_name = #{doctorName,jdbcType=CHAR},
+      settlement_type = #{settlementType,jdbcType=CHAR},
+      status = #{status,jdbcType=CHAR},
+      is_in_morning = #{isInMorning,jdbcType=BIT},
+      is_need_medical_book = #{isNeedMedicalBook,jdbcType=BIT},
+      diagnose_date = #{diagnoseDate,jdbcType=DATE},
+      create_time = #{createTime,jdbcType=TIMESTAMP}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

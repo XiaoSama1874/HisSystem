@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaosama.HisSystem.dao.NonMedicineApplyTemplateDtlMapper" >
+  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtl" >
+    <result column="template_id" property="templateId" jdbcType="INTEGER" />
+    <result column="apply_id" property="applyId" jdbcType="INTEGER" />
+    <result column="apply_type" property="applyType" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="request" property="request" jdbcType="VARCHAR" />
+    <result column="check_part" property="checkPart" jdbcType="VARCHAR" />
+    <result column="is_emergent" property="isEmergent" jdbcType="BIT" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    template_id, apply_id, apply_type, name, request, check_part, is_emergent
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtlExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from non_medicine_apply_templatedtl
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtlExample" >
+    delete from non_medicine_apply_templatedtl
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtl" >
+    insert into non_medicine_apply_templatedtl (template_id, apply_id, apply_type, 
+      name, request, check_part, 
+      is_emergent)
+    values (#{templateId,jdbcType=INTEGER}, #{applyId,jdbcType=INTEGER}, #{applyType,jdbcType=VARCHAR}, 
+      #{name,jdbcType=VARCHAR}, #{request,jdbcType=VARCHAR}, #{checkPart,jdbcType=VARCHAR}, 
+      #{isEmergent,jdbcType=BIT})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtl" >
+    insert into non_medicine_apply_templatedtl
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="templateId != null" >
+        template_id,
+      </if>
+      <if test="applyId != null" >
+        apply_id,
+      </if>
+      <if test="applyType != null" >
+        apply_type,
+      </if>
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="request != null" >
+        request,
+      </if>
+      <if test="checkPart != null" >
+        check_part,
+      </if>
+      <if test="isEmergent != null" >
+        is_emergent,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="templateId != null" >
+        #{templateId,jdbcType=INTEGER},
+      </if>
+      <if test="applyId != null" >
+        #{applyId,jdbcType=INTEGER},
+      </if>
+      <if test="applyType != null" >
+        #{applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="request != null" >
+        #{request,jdbcType=VARCHAR},
+      </if>
+      <if test="checkPart != null" >
+        #{checkPart,jdbcType=VARCHAR},
+      </if>
+      <if test="isEmergent != null" >
+        #{isEmergent,jdbcType=BIT},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.NonMedicineApplyTemplateDtlExample" resultType="java.lang.Integer" >
+    select count(*) from non_medicine_apply_templatedtl
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update non_medicine_apply_templatedtl
+    <set >
+      <if test="record.templateId != null" >
+        template_id = #{record.templateId,jdbcType=INTEGER},
+      </if>
+      <if test="record.applyId != null" >
+        apply_id = #{record.applyId,jdbcType=INTEGER},
+      </if>
+      <if test="record.applyType != null" >
+        apply_type = #{record.applyType,jdbcType=VARCHAR},
+      </if>
+      <if test="record.name != null" >
+        name = #{record.name,jdbcType=VARCHAR},
+      </if>
+      <if test="record.request != null" >
+        request = #{record.request,jdbcType=VARCHAR},
+      </if>
+      <if test="record.checkPart != null" >
+        check_part = #{record.checkPart,jdbcType=VARCHAR},
+      </if>
+      <if test="record.isEmergent != null" >
+        is_emergent = #{record.isEmergent,jdbcType=BIT},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update non_medicine_apply_templatedtl
+    set template_id = #{record.templateId,jdbcType=INTEGER},
+      apply_id = #{record.applyId,jdbcType=INTEGER},
+      apply_type = #{record.applyType,jdbcType=VARCHAR},
+      name = #{record.name,jdbcType=VARCHAR},
+      request = #{record.request,jdbcType=VARCHAR},
+      check_part = #{record.checkPart,jdbcType=VARCHAR},
+      is_emergent = #{record.isEmergent,jdbcType=BIT}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+</mapper>

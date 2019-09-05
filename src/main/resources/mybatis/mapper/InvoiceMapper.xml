@@ -1,0 +1,259 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.xiaosama.HisSystem.dao.InvoiceMapper" >
+  <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.po.Invoice" >
+    <id column="number" property="number" jdbcType="INTEGER" />
+    <result column="register_id" property="registerId" jdbcType="INTEGER" />
+    <result column="operator_id" property="operatorId" jdbcType="INTEGER" />
+    <result column="money" property="money" jdbcType="DECIMAL" />
+    <result column="pay_return_time" property="payReturnTime" jdbcType="TIMESTAMP" />
+    <result column="pay_approach" property="payApproach" jdbcType="VARCHAR" />
+    <result column="rush_red_number" property="rushRedNumber" jdbcType="INTEGER" />
+    <result column="fee_category" property="feeCategory" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Example_Where_Clause" >
+    <where >
+      <foreach collection="oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Update_By_Example_Where_Clause" >
+    <where >
+      <foreach collection="example.oredCriteria" item="criteria" separator="or" >
+        <if test="criteria.valid" >
+          <trim prefix="(" suffix=")" prefixOverrides="and" >
+            <foreach collection="criteria.criteria" item="criterion" >
+              <choose >
+                <when test="criterion.noValue" >
+                  and ${criterion.condition}
+                </when>
+                <when test="criterion.singleValue" >
+                  and ${criterion.condition} #{criterion.value}
+                </when>
+                <when test="criterion.betweenValue" >
+                  and ${criterion.condition} #{criterion.value} and #{criterion.secondValue}
+                </when>
+                <when test="criterion.listValue" >
+                  and ${criterion.condition}
+                  <foreach collection="criterion.value" item="listItem" open="(" close=")" separator="," >
+                    #{listItem}
+                  </foreach>
+                </when>
+              </choose>
+            </foreach>
+          </trim>
+        </if>
+      </foreach>
+    </where>
+  </sql>
+  <sql id="Base_Column_List" >
+    number, register_id, operator_id, money, pay_return_time, pay_approach, rush_red_number, 
+    fee_category
+  </sql>
+  <select id="selectByExample" resultMap="BaseResultMap" parameterType="com.xiaosama.HisSystem.po.InvoiceExample" >
+    select
+    <if test="distinct" >
+      distinct
+    </if>
+    <include refid="Base_Column_List" />
+    from invoice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+    <if test="orderByClause != null" >
+      order by ${orderByClause}
+    </if>
+  </select>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from invoice
+    where number = #{number,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from invoice
+    where number = #{number,jdbcType=INTEGER}
+  </delete>
+  <delete id="deleteByExample" parameterType="com.xiaosama.HisSystem.po.InvoiceExample" >
+    delete from invoice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </delete>
+  <insert id="insert" parameterType="com.xiaosama.HisSystem.po.Invoice" >
+    insert into invoice (number, register_id, operator_id, 
+      money, pay_return_time, pay_approach, 
+      rush_red_number, fee_category)
+    values (#{number,jdbcType=INTEGER}, #{registerId,jdbcType=INTEGER}, #{operatorId,jdbcType=INTEGER}, 
+      #{money,jdbcType=DECIMAL}, #{payReturnTime,jdbcType=TIMESTAMP}, #{payApproach,jdbcType=VARCHAR}, 
+      #{rushRedNumber,jdbcType=INTEGER}, #{feeCategory,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.po.Invoice" >
+    insert into invoice
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="number != null" >
+        number,
+      </if>
+      <if test="registerId != null" >
+        register_id,
+      </if>
+      <if test="operatorId != null" >
+        operator_id,
+      </if>
+      <if test="money != null" >
+        money,
+      </if>
+      <if test="payReturnTime != null" >
+        pay_return_time,
+      </if>
+      <if test="payApproach != null" >
+        pay_approach,
+      </if>
+      <if test="rushRedNumber != null" >
+        rush_red_number,
+      </if>
+      <if test="feeCategory != null" >
+        fee_category,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="number != null" >
+        #{number,jdbcType=INTEGER},
+      </if>
+      <if test="registerId != null" >
+        #{registerId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorId != null" >
+        #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="payReturnTime != null" >
+        #{payReturnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payApproach != null" >
+        #{payApproach,jdbcType=VARCHAR},
+      </if>
+      <if test="rushRedNumber != null" >
+        #{rushRedNumber,jdbcType=INTEGER},
+      </if>
+      <if test="feeCategory != null" >
+        #{feeCategory,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <select id="countByExample" parameterType="com.xiaosama.HisSystem.po.InvoiceExample" resultType="java.lang.Integer" >
+    select count(*) from invoice
+    <if test="_parameter != null" >
+      <include refid="Example_Where_Clause" />
+    </if>
+  </select>
+  <update id="updateByExampleSelective" parameterType="map" >
+    update invoice
+    <set >
+      <if test="record.number != null" >
+        number = #{record.number,jdbcType=INTEGER},
+      </if>
+      <if test="record.registerId != null" >
+        register_id = #{record.registerId,jdbcType=INTEGER},
+      </if>
+      <if test="record.operatorId != null" >
+        operator_id = #{record.operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="record.money != null" >
+        money = #{record.money,jdbcType=DECIMAL},
+      </if>
+      <if test="record.payReturnTime != null" >
+        pay_return_time = #{record.payReturnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="record.payApproach != null" >
+        pay_approach = #{record.payApproach,jdbcType=VARCHAR},
+      </if>
+      <if test="record.rushRedNumber != null" >
+        rush_red_number = #{record.rushRedNumber,jdbcType=INTEGER},
+      </if>
+      <if test="record.feeCategory != null" >
+        fee_category = #{record.feeCategory,jdbcType=VARCHAR},
+      </if>
+    </set>
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByExample" parameterType="map" >
+    update invoice
+    set number = #{record.number,jdbcType=INTEGER},
+      register_id = #{record.registerId,jdbcType=INTEGER},
+      operator_id = #{record.operatorId,jdbcType=INTEGER},
+      money = #{record.money,jdbcType=DECIMAL},
+      pay_return_time = #{record.payReturnTime,jdbcType=TIMESTAMP},
+      pay_approach = #{record.payApproach,jdbcType=VARCHAR},
+      rush_red_number = #{record.rushRedNumber,jdbcType=INTEGER},
+      fee_category = #{record.feeCategory,jdbcType=VARCHAR}
+    <if test="_parameter != null" >
+      <include refid="Update_By_Example_Where_Clause" />
+    </if>
+  </update>
+  <update id="updateByPrimaryKeySelective" parameterType="com.xiaosama.HisSystem.po.Invoice" >
+    update invoice
+    <set >
+      <if test="registerId != null" >
+        register_id = #{registerId,jdbcType=INTEGER},
+      </if>
+      <if test="operatorId != null" >
+        operator_id = #{operatorId,jdbcType=INTEGER},
+      </if>
+      <if test="money != null" >
+        money = #{money,jdbcType=DECIMAL},
+      </if>
+      <if test="payReturnTime != null" >
+        pay_return_time = #{payReturnTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="payApproach != null" >
+        pay_approach = #{payApproach,jdbcType=VARCHAR},
+      </if>
+      <if test="rushRedNumber != null" >
+        rush_red_number = #{rushRedNumber,jdbcType=INTEGER},
+      </if>
+      <if test="feeCategory != null" >
+        fee_category = #{feeCategory,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where number = #{number,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.xiaosama.HisSystem.po.Invoice" >
+    update invoice
+    set register_id = #{registerId,jdbcType=INTEGER},
+      operator_id = #{operatorId,jdbcType=INTEGER},
+      money = #{money,jdbcType=DECIMAL},
+      pay_return_time = #{payReturnTime,jdbcType=TIMESTAMP},
+      pay_approach = #{payApproach,jdbcType=VARCHAR},
+      rush_red_number = #{rushRedNumber,jdbcType=INTEGER},
+      fee_category = #{feeCategory,jdbcType=VARCHAR}
+    where number = #{number,jdbcType=INTEGER}
+  </update>
+</mapper>
