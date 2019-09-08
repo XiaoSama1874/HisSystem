@@ -109,7 +109,7 @@
       #{birthDate,jdbcType=DATE}, #{identityId,jdbcType=CHAR}, #{address,jdbcType=VARCHAR}
       )
   </insert>
-    <insert id="insertSelective" useGeneratedKeys="true" keyColumn="medical_id" parameterType="com.xiaosama.HisSystem.pojo.po.Patient">
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="medicalId" parameterType="com.xiaosama.HisSystem.pojo.po.Patient">
     insert into patient
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="medicalId != null" >

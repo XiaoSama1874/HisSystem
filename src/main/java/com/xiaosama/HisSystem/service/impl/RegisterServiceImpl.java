@@ -27,6 +27,8 @@ public class RegisterServiceImpl implements RegisterService, StatusCode {
     SettlementTypeMapper settlementTypeMapper;
     @Autowired
     RegisterInfoMapper registerInfoMapper;
+    @Autowired
+    FeePayApproachMapper feePayApproachMapper;
 
     @Override
     public DataWithStatus getPatientInfoByMedicalId(Integer id) {
@@ -77,14 +79,10 @@ public class RegisterServiceImpl implements RegisterService, StatusCode {
     }
 
     @Override
-    public DataWithStatus addPatientInfo(Patient patient) {
-        Integer a=patientMapper.insertSelective(patient);
-        if (a==1){
-            return new DataWithStatus(patient, SUCCESS);
-        }else{
-            return new DataWithStatus(patient, FAIL);
-        }
-
+    public Integer addPatientInfo(Patient patient) {
+        int i = patientMapper.insertSelective(patient);
+        Integer medicalId = patient.getMedicalId();
+        return medicalId;
     }
     @Override
     public List<RegisterInfo> getRegisterInfoByMedicalId(Integer id){
@@ -92,5 +90,8 @@ public class RegisterServiceImpl implements RegisterService, StatusCode {
         example.or().andMedicalIdEqualTo(id);
         return registerInfoMapper.selectByExample(example);
     }
-
+    @Override
+    public List<String> getPayApproach(){
+        return feePayApproachMapper.selectByExample(new FeePayApproachExample()).stream().map(FeePayApproach::getValue).collect(Collectors.toList());
+    }
 }

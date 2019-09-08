@@ -2,13 +2,14 @@ package com.xiaosama.HisSystem.controller;
 
 import com.xiaosama.HisSystem.pojo.dto.DataWithStatus;
 import com.xiaosama.HisSystem.pojo.dto.DtoDoctor;
+import com.xiaosama.HisSystem.pojo.po.Patient;
 import com.xiaosama.HisSystem.pojo.po.RegisterInfo;
 import com.xiaosama.HisSystem.service.RegisterService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-
+@CrossOrigin(origins="*")
 @RestController
 public class RegisterController {
     @Autowired
@@ -33,8 +34,17 @@ public class RegisterController {
     public DataWithStatus addRegisterInfo(@RequestBody RegisterInfo registerInfo){
         return  registerService.addRegisterInfo(registerInfo);
     }
+    @PostMapping("/patient")
+    public Integer addPatient(@RequestBody Patient patient){
+        return  registerService.addPatientInfo(patient);
+    }
+
     @GetMapping("/registerInfo/{medicalId}")
     public List<RegisterInfo> getRegisterInfoByMedicalId(@PathVariable("medicalId") Integer medicalId){
         return registerService.getRegisterInfoByMedicalId(medicalId);
+    }
+    @GetMapping("/payApproach")
+    public List<String> getPayApproach(){
+        return registerService.getPayApproach();
     }
 }

@@ -9,14 +9,13 @@ import java.util.List;
 
 
 public interface RegisterService {
-
     public DataWithStatus getPatientInfoByMedicalId(Integer id);
     public List<String> getAllDepts();
     public List<DtoDoctor> getAllDoctors();
     public List<String> getAllSettlementType();
     public DataWithStatus addRegisterInfo(RegisterInfo registerInfo);
-
-    public DataWithStatus addPatientInfo(Patient patient);
-
+    public Integer addPatientInfo(Patient patient);
     List<RegisterInfo> getRegisterInfoByMedicalId(Integer id);
+
+    List<String> getPayApproach();
 }
