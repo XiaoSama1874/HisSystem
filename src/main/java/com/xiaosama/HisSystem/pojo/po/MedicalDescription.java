@@ -5,6 +5,10 @@ public class MedicalDescription {
 
     private String chiefComplaint;
 
+    private String presentIllnessHistory;
+
+    private String presentIllnessDiagnose;
+
     private String pastHistory;
 
     private String allergicHistory;
@@ -29,6 +33,22 @@ public class MedicalDescription {
 
     public void setChiefComplaint(String chiefComplaint) {
         this.chiefComplaint = chiefComplaint == null ? null : chiefComplaint.trim();
+    }
+
+    public String getPresentIllnessHistory() {
+        return presentIllnessHistory;
+    }
+
+    public void setPresentIllnessHistory(String presentIllnessHistory) {
+        this.presentIllnessHistory = presentIllnessHistory == null ? null : presentIllnessHistory.trim();
+    }
+
+    public String getPresentIllnessDiagnose() {
+        return presentIllnessDiagnose;
+    }
+
+    public void setPresentIllnessDiagnose(String presentIllnessDiagnose) {
+        this.presentIllnessDiagnose = presentIllnessDiagnose == null ? null : presentIllnessDiagnose.trim();
     }
 
     public String getPastHistory() {

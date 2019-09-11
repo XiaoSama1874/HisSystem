@@ -106,7 +106,7 @@
     values (#{id,jdbcType=INTEGER}, #{registerId,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, 
       #{createTime,jdbcType=TIMESTAMP}, #{status,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrescription">
+    <insert id="insertSelective" useGeneratedKeys="true" keyProperty="id" parameterType="com.xiaosama.HisSystem.pojo.po.WesternMedicinePrescription">
     insert into western_medicine_prescription
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >

@@ -46,49 +46,51 @@
             <property name="enableSubPackages" value="true"/>
         </javaClientGenerator>
 
-        <table tableName="dept" domainObjectName="Dept"/>
-        <table tableName="apply_status" domainObjectName="ApplyStatus"/>
-        <table tableName="chinese_medicine_prescription" domainObjectName="ChineseMedicinePrescription"/>
-        <table tableName="chinese_medicine_prescriptiondtl" domainObjectName="ChineseMedicinePrescriptionDtl"/>
-        <table tableName="chinese_medicine_presp_template" domainObjectName="ChineseMedicinePrespTemplate"/>
-        <table tableName="chinese_medicine_presp_templatedtl" domainObjectName="chineseMedicinePrespTemplateDtl"/>
-        <table tableName="chinese_prescription_category" domainObjectName="chinesePrescriptionCategory"/>
-        <table tableName="daily_settlement" domainObjectName="DailySettlement"/>
-        <table tableName="dept" domainObjectName="Dept"/>
-        <table tableName="dept_category" domainObjectName="DeptCategory"/>
-        <table tableName="dept_type" domainObjectName="DeptType"/>
-        <table tableName="disease" domainObjectName="Disease"/>
-        <table tableName="disease_category" domainObjectName="diseaseCategory"/>
-        <table tableName="disease_diagnose" domainObjectName="diseaseDiagnose"/>
-        <table tableName="doctor" domainObjectName="Doctor"/>
-        <table tableName="doctor_medical_level" domainObjectName="DoctorMedicalLevel"/>
-        <table tableName="fee_category" domainObjectName="feeCategory"/>
-        <table tableName="fee_dtl" domainObjectName="FeeDtl"/>
-        <table tableName="fee_pay_approach" domainObjectName="FeePayApproach"/>
-        <table tableName="invoice" domainObjectName="Invoice"/>
         <table tableName="medical_description" domainObjectName="MedicalDescription"/>
-        <table tableName="medicine" domainObjectName="Medicine"/>
-        <table tableName="medicine_dosage_form" domainObjectName="MedicineDosageForm"/>
-        <table tableName="medicine_packing_unit" domainObjectName="MedicinePackingUnit"/>
-        <table tableName="non_medicine" domainObjectName="NonMedicine"/>
-        <table tableName="non_medicine_apply" domainObjectName="NonMedicineApply"/>
-        <table tableName="non_medicine_apply_template" domainObjectName="NonMedicineApplyTemplate"/>
-        <table tableName="non_medicine_apply_templatedtl" domainObjectName="NonMedicineApplyTemplateDtl"/>
-        <table tableName="patient" domainObjectName="Patient"/>
-        <table tableName="prescription_status" domainObjectName="PrescriptionStatus"/>
-        <table tableName="register_info" domainObjectName="RegisterInfo"/>
-        <table tableName="register_level" domainObjectName="RegisterLevel"/>
-        <table tableName="register_status" domainObjectName="RegisterStatus"/>
-        <table tableName="schedule_result" domainObjectName="ScheduleResult"/>
-        <table tableName="schedule_rule" domainObjectName="ScheduleRule"/>
-        <table tableName="settlement_type" domainObjectName="SettlementType"/>
-        <table tableName="template_usable_range" domainObjectName="TemplateUsableRange"/>
-        <table tableName="his_user" domainObjectName="User"/>
-        <table tableName="his_user_type" domainObjectName="UserType"/>
-        <table tableName="western_medicine_prescription" domainObjectName="WesternMedicinePrescription"/>
-        <table tableName="western_medicine_prescriptiondtl" domainObjectName="WesternMedicinePrescriptionDtl"/>
-        <table tableName="western_medicine_presp_template" domainObjectName="WesternMedicinePrespTemplate"/>
-        <table tableName="western_medicine_presp_templatedtl" domainObjectName="WesternMedicinePrespTemplateDtl"/>
+
+
+<!--        <table tableName="dept" domainObjectName="Dept"/>-->
+<!--        <table tableName="apply_status" domainObjectName="ApplyStatus"/>-->
+<!--        <table tableName="chinese_medicine_prescription" domainObjectName="ChineseMedicinePrescription"/>-->
+<!--        <table tableName="chinese_medicine_prescriptiondtl" domainObjectName="ChineseMedicinePrescriptionDtl"/>-->
+<!--        <table tableName="chinese_medicine_presp_template" domainObjectName="ChineseMedicinePrespTemplate"/>-->
+<!--        <table tableName="chinese_medicine_presp_templatedtl" domainObjectName="chineseMedicinePrespTemplateDtl"/>-->
+<!--        <table tableName="chinese_prescription_category" domainObjectName="chinesePrescriptionCategory"/>-->
+<!--        <table tableName="daily_settlement" domainObjectName="DailySettlement"/>-->
+<!--        <table tableName="dept" domainObjectName="Dept"/>-->
+<!--        <table tableName="dept_category" domainObjectName="DeptCategory"/>-->
+<!--        <table tableName="dept_type" domainObjectName="DeptType"/>-->
+<!--        <table tableName="disease" domainObjectName="Disease"/>-->
+<!--        <table tableName="disease_category" domainObjectName="diseaseCategory"/>-->
+<!--        <table tableName="disease_diagnose" domainObjectName="DiseaseDiagnose"/>-->
+<!--        <table tableName="doctor" domainObjectName="Doctor"/>-->
+<!--        <table tableName="doctor_medical_level" domainObjectName="DoctorMedicalLevel"/>-->
+<!--        <table tableName="fee_category" domainObjectName="feeCategory"/>-->
+<!--        <table tableName="fee_dtl" domainObjectName="FeeDtl"/>-->
+<!--        <table tableName="fee_pay_approach" domainObjectName="FeePayApproach"/>-->
+<!--        <table tableName="invoice" domainObjectName="Invoice"/>-->
+<!--        <table tableName="medicine" domainObjectName="Medicine"/>-->
+<!--        <table tableName="medicine_dosage_form" domainObjectName="MedicineDosageForm"/>-->
+<!--        <table tableName="medicine_packing_unit" domainObjectName="MedicinePackingUnit"/>-->
+<!--        <table tableName="non_medicine" domainObjectName="NonMedicine"/>-->
+<!--        <table tableName="non_medicine_apply" domainObjectName="NonMedicineApply"/>-->
+<!--        <table tableName="non_medicine_apply_template" domainObjectName="NonMedicineApplyTemplate"/>-->
+<!--        <table tableName="non_medicine_apply_templatedtl" domainObjectName="NonMedicineApplyTemplateDtl"/>-->
+<!--        <table tableName="patient" domainObjectName="Patient"/>-->
+<!--        <table tableName="prescription_status" domainObjectName="PrescriptionStatus"/>-->
+<!--        <table tableName="register_info" domainObjectName="RegisterInfo"/>-->
+<!--        <table tableName="register_level" domainObjectName="RegisterLevel"/>-->
+<!--        <table tableName="register_status" domainObjectName="RegisterStatus"/>-->
+<!--        <table tableName="schedule_result" domainObjectName="ScheduleResult"/>-->
+<!--        <table tableName="schedule_rule" domainObjectName="ScheduleRule"/>-->
+<!--        <table tableName="settlement_type" domainObjectName="SettlementType"/>-->
+<!--        <table tableName="template_usable_range" domainObjectName="TemplateUsableRange"/>-->
+<!--        <table tableName="his_user" domainObjectName="User"/>-->
+<!--        <table tableName="his_user_type" domainObjectName="UserType"/>-->
+<!--        <table tableName="western_medicine_prescription" domainObjectName="WesternMedicinePrescription"/>-->
+<!--        <table tableName="western_medicine_prescriptiondtl" domainObjectName="WesternMedicinePrescriptionDtl"/>-->
+<!--        <table tableName="western_medicine_presp_template" domainObjectName="WesternMedicinePrespTemplate"/>-->
+<!--        <table tableName="western_medicine_presp_templatedtl" domainObjectName="WesternMedicinePrespTemplateDtl"/>-->
 
     </context>
 </generatorConfiguration>

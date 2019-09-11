@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.xiaosama.HisSystem.dao.diseaseDiagnoseMapper" >
-    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.diseaseDiagnose">
+<mapper namespace="com.xiaosama.HisSystem.dao.DiseaseDiagnoseMapper" >
+    <resultMap id="BaseResultMap" type="com.xiaosama.HisSystem.pojo.po.DiseaseDiagnose">
     <result column="register_id" property="registerId" jdbcType="INTEGER" />
     <result column="disease_id" property="diseaseId" jdbcType="INTEGER" />
     <result column="disease_name" property="diseaseName" jdbcType="VARCHAR" />
@@ -91,7 +91,7 @@
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.diseaseDiagnose">
+    <insert id="insert" parameterType="com.xiaosama.HisSystem.pojo.po.DiseaseDiagnose">
     insert into disease_diagnose (register_id, disease_id, disease_name, 
       is_final_diagnose, is_western_disease, happen_time
       )
@@ -99,7 +99,7 @@
       #{isFinalDiagnose,jdbcType=BIT}, #{isWesternDisease,jdbcType=BIT}, #{happenTime,jdbcType=TIMESTAMP}
       )
   </insert>
-    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.diseaseDiagnose">
+    <insert id="insertSelective" parameterType="com.xiaosama.HisSystem.pojo.po.DiseaseDiagnose">
     insert into disease_diagnose
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="registerId != null" >

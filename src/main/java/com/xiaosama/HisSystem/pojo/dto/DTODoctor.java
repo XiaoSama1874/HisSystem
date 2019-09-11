@@ -1,13 +1,13 @@
 package com.xiaosama.HisSystem.pojo.dto;
 
-public class DtoDoctor {
+public class DTODoctor {
     private Integer id;
     private String dept;
     private String name;
     private String registerLevel;
     private Integer registerFee;
 
-    public DtoDoctor(Integer id, String dept, String name, String registerLevel, Integer registerFee) {
+    public DTODoctor(Integer id, String dept, String name, String registerLevel, Integer registerFee) {
         this.id = id;
         this.dept = dept;
         this.name = name;

@@ -1,13 +1,9 @@
 package com.xiaosama.HisSystem.service.impl;
 
-import com.xiaosama.HisSystem.dao.DiseaseMapper;
-import com.xiaosama.HisSystem.dao.MedicineMapper;
-import com.xiaosama.HisSystem.dao.PatientMapper;
-import com.xiaosama.HisSystem.dao.RegisterInfoMapper;
-import com.xiaosama.HisSystem.pojo.dto.DTOMedicine;
-import com.xiaosama.HisSystem.pojo.dto.DtoPatient;
-import com.xiaosama.HisSystem.pojo.dto.StatusCode;
+import com.xiaosama.HisSystem.dao.*;
+import com.xiaosama.HisSystem.pojo.dto.*;
 import com.xiaosama.HisSystem.pojo.po.*;
+import com.xiaosama.HisSystem.pojo.vo.VODDiagnose;
 import com.xiaosama.HisSystem.service.DiagnoseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -19,7 +15,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 @Service
-public class DiagnoseServiceImpl implements StatusCode, DiagnoseService {
+public class DiagnoseServiceImpl implements  DiagnoseService,StatusCode {
 
     @Autowired
     RegisterInfoMapper registerInfoMapper;
@@ -29,6 +25,14 @@ public class DiagnoseServiceImpl implements StatusCode, DiagnoseService {
     DiseaseMapper diseaseMapper;
     @Autowired
     MedicineMapper medicineMapper;
+    @Autowired
+    MedicalDescriptionMapper medicalDescriptionMapper;
+    @Autowired
+    DiseaseDiagnoseMapper diseaseDiagnoseMapper;
+    @Autowired
+    WesternMedicinePrescriptionMapper westernMedicinePrescriptionMapper;
+    @Autowired
+    WesternMedicinePrescriptionDtlMapper westernMedicinePrescriptionDtlMapper;
 
     @Override
     public List<DtoPatient> getTodayRegisterInfoByDeptName(String deptName) {
@@ -77,5 +81,81 @@ public class DiagnoseServiceImpl implements StatusCode, DiagnoseService {
 
         }
         return results;
+    }
+
+    @Override
+    public Integer addMedicalDescription(MedicalDescription medicalDescription) {
+        int result = medicalDescriptionMapper.insertSelective(medicalDescription);
+        //同时修改状态
+        RegisterInfo registerInfo=new RegisterInfo();
+        registerInfo.setStatus("已诊");
+        registerInfo.setId(medicalDescription.getRegisterId());
+        registerInfoMapper.updateByPrimaryKeySelective(registerInfo);
+
+        if (result == 1) {
+            return SUCCESS;
+        }else{
+            return FAIL;
+        }
+    }
+
+    @Override
+    public Integer addDiagnose(VODDiagnose vodDiagnose){
+        Boolean isWesternDisease= vodDiagnose.diagnoseType.equals("西医");
+        Boolean isFinalDiagnose = vodDiagnose.type.equals("终诊");
+        int result = diseaseDiagnoseMapper.insertSelective(new DiseaseDiagnose(Integer.parseInt(vodDiagnose.getRegisterId()), Integer.parseInt(vodDiagnose.getDiseaseId()), vodDiagnose.getName(), isFinalDiagnose, isWesternDisease, new Date()));
+        if (result==1){
+            return SUCCESS;
+        }else{
+            return FAIL;
+        }
+    }
+    @Override
+    public ArrayList<DTODiseaseDiagnose> getDiagnose(Integer registerId){
+        diseaseDiagnoseExample e1=new diseaseDiagnoseExample();
+        e1.or().andRegisterIdEqualTo(registerId);
+        List<DiseaseDiagnose> diseaseDiagnoses = diseaseDiagnoseMapper.selectByExample(e1);
+        ArrayList<DTODiseaseDiagnose> results = new ArrayList<>();
+        Disease disease;
+        for (DiseaseDiagnose d :
+                diseaseDiagnoses) {
+            disease = diseaseMapper.selectByPrimaryKey(d.getDiseaseId());
+            results.add(new DTODiseaseDiagnose(d.getDiseaseId(), disease.getInitialCode(), disease.getName(), disease.getIcdCode(), disease.getCategory(), d.getIsFinalDiagnose() ? "终诊" : "初诊", d.getHappenTime()));
+        }
+        return results;
+    }
+    @Override
+    public List<WesternMedicinePrescription> getWesternPresp(Integer registerId){
+        WesternMedicinePrescriptionExample westernMedicinePrescriptionExample = new WesternMedicinePrescriptionExample();
+        westernMedicinePrescriptionExample.or().andRegisterIdEqualTo(registerId);
+        return westernMedicinePrescriptionMapper.selectByExample(westernMedicinePrescriptionExample);
+    }
+
+    @Override
+    public DataWithStatus addWesternPresp(WesternMedicinePrescription westernMedicinePrescription) {
+        westernMedicinePrescription.setCreateTime(new Date());
+
+        int i = westernMedicinePrescriptionMapper.insertSelective(westernMedicinePrescription);
+        if (i==1){
+            return new DataWithStatus(westernMedicinePrescription.getId(),SUCCESS);
+        }else{
+            return new DataWithStatus(westernMedicinePrescription.getId(),FAIL);
+        }
+    }
+    @Override
+    public List<WesternMedicinePrescriptionDtl> getWesterPrespDtl(Integer prescriptionId){
+        WesternMedicinePrescriptionDtlExample e1 = new WesternMedicinePrescriptionDtlExample();
+        e1.or().andPrescriptionIdEqualTo(prescriptionId);
+        return westernMedicinePrescriptionDtlMapper.selectByExample(e1);
+    }
+
+    @Override
+    public DataWithStatus addWesternPrespDtl(WesternMedicinePrescriptionDtl westernMedicinePrescriptionDtl) {
+        int i = westernMedicinePrescriptionDtlMapper.insertSelective(westernMedicinePrescriptionDtl);
+        if(i==1){
+            return new DataWithStatus(westernMedicinePrescriptionDtl.getId(), SUCCESS);
+        }else{
+            return new DataWithStatus(westernMedicinePrescriptionDtl.getId(), FAIL);
+        }
     }
 }

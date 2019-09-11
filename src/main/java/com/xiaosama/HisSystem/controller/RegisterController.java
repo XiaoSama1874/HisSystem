@@ -1,7 +1,7 @@
 package com.xiaosama.HisSystem.controller;
 
 import com.xiaosama.HisSystem.pojo.dto.DataWithStatus;
-import com.xiaosama.HisSystem.pojo.dto.DtoDoctor;
+import com.xiaosama.HisSystem.pojo.dto.DTODoctor;
 import com.xiaosama.HisSystem.pojo.po.Patient;
 import com.xiaosama.HisSystem.pojo.po.RegisterInfo;
 import com.xiaosama.HisSystem.service.RegisterService;
@@ -23,7 +23,7 @@ public class RegisterController {
         return registerService.getAllDepts();
     }
     @RequestMapping("/doctor/all")
-    public List<DtoDoctor> getAllDoctors(){
+    public List<DTODoctor> getAllDoctors(){
         return registerService.getAllDoctors();
     }
     @RequestMapping("/settlementType/all")

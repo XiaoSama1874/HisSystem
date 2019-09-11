@@ -2,7 +2,7 @@ package com.xiaosama.HisSystem.pojo.po;
 
 import java.util.Date;
 
-public class diseaseDiagnose {
+public class DiseaseDiagnose {
     private Integer registerId;
 
     private Integer diseaseId;
@@ -14,6 +14,15 @@ public class diseaseDiagnose {
     private Boolean isWesternDisease;
 
     private Date happenTime;
+
+    public DiseaseDiagnose(Integer registerId, Integer diseaseId, String diseaseName, Boolean isFinalDiagnose, Boolean isWesternDisease, Date happenTime) {
+        this.registerId = registerId;
+        this.diseaseId = diseaseId;
+        this.diseaseName = diseaseName;
+        this.isFinalDiagnose = isFinalDiagnose;
+        this.isWesternDisease = isWesternDisease;
+        this.happenTime = happenTime;
+    }
 
     public Integer getRegisterId() {
         return registerId;

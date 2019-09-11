@@ -2,10 +2,8 @@ package com.xiaosama.HisSystem.dao;
 
 import com.xiaosama.HisSystem.pojo.po.MedicalDescription;
 import com.xiaosama.HisSystem.pojo.po.MedicalDescriptionExample;
-import com.xiaosama.HisSystem.pojo.po.MedicalDescriptionWithBLOBs;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+import org.apache.ibatis.annotations.Param;
 
 public interface MedicalDescriptionMapper {
     int countByExample(MedicalDescriptionExample example);
@@ -14,25 +12,19 @@ public interface MedicalDescriptionMapper {
 
     int deleteByPrimaryKey(Integer registerId);
 
-    int insert(MedicalDescriptionWithBLOBs record);
+    int insert(MedicalDescription record);
 
-    int insertSelective(MedicalDescriptionWithBLOBs record);
-
-    List<MedicalDescriptionWithBLOBs> selectByExampleWithBLOBs(MedicalDescriptionExample example);
+    int insertSelective(MedicalDescription record);
 
     List<MedicalDescription> selectByExample(MedicalDescriptionExample example);
 
-    MedicalDescriptionWithBLOBs selectByPrimaryKey(Integer registerId);
+    MedicalDescription selectByPrimaryKey(Integer registerId);
 
-    int updateByExampleSelective(@Param("record") MedicalDescriptionWithBLOBs record, @Param("example") MedicalDescriptionExample example);
-
-    int updateByExampleWithBLOBs(@Param("record") MedicalDescriptionWithBLOBs record, @Param("example") MedicalDescriptionExample example);
+    int updateByExampleSelective(@Param("record") MedicalDescription record, @Param("example") MedicalDescriptionExample example);
 
     int updateByExample(@Param("record") MedicalDescription record, @Param("example") MedicalDescriptionExample example);
 
-    int updateByPrimaryKeySelective(MedicalDescriptionWithBLOBs record);
-
-    int updateByPrimaryKeyWithBLOBs(MedicalDescriptionWithBLOBs record);
+    int updateByPrimaryKeySelective(MedicalDescription record);
 
     int updateByPrimaryKey(MedicalDescription record);
 }

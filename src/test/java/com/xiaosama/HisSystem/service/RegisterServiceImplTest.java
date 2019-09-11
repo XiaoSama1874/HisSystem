@@ -1,6 +1,6 @@
 package com.xiaosama.HisSystem.service;
 
-import com.xiaosama.HisSystem.pojo.dto.DtoDoctor;
+import com.xiaosama.HisSystem.pojo.dto.DTODoctor;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +16,7 @@ public class RegisterServiceImplTest {
     RegisterService registerService;
     @Test
     public void testGetAllDoctors(){
-        List<DtoDoctor> a = registerService.getAllDoctors();
+        List<DTODoctor> a = registerService.getAllDoctors();
         System.out.println(a);
     }
 }

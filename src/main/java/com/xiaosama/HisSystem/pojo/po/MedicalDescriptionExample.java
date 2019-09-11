@@ -234,6 +234,146 @@ public class MedicalDescriptionExample {
             return (Criteria) this;
         }
 
+        public Criteria andPresentIllnessHistoryIsNull() {
+            addCriterion("present_illness_history is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryIsNotNull() {
+            addCriterion("present_illness_history is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryEqualTo(String value) {
+            addCriterion("present_illness_history =", value, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryNotEqualTo(String value) {
+            addCriterion("present_illness_history <>", value, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryGreaterThan(String value) {
+            addCriterion("present_illness_history >", value, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryGreaterThanOrEqualTo(String value) {
+            addCriterion("present_illness_history >=", value, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryLessThan(String value) {
+            addCriterion("present_illness_history <", value, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryLessThanOrEqualTo(String value) {
+            addCriterion("present_illness_history <=", value, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryLike(String value) {
+            addCriterion("present_illness_history like", value, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryNotLike(String value) {
+            addCriterion("present_illness_history not like", value, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryIn(List<String> values) {
+            addCriterion("present_illness_history in", values, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryNotIn(List<String> values) {
+            addCriterion("present_illness_history not in", values, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryBetween(String value1, String value2) {
+            addCriterion("present_illness_history between", value1, value2, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessHistoryNotBetween(String value1, String value2) {
+            addCriterion("present_illness_history not between", value1, value2, "presentIllnessHistory");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseIsNull() {
+            addCriterion("present_illness_diagnose is null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseIsNotNull() {
+            addCriterion("present_illness_diagnose is not null");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseEqualTo(String value) {
+            addCriterion("present_illness_diagnose =", value, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseNotEqualTo(String value) {
+            addCriterion("present_illness_diagnose <>", value, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseGreaterThan(String value) {
+            addCriterion("present_illness_diagnose >", value, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseGreaterThanOrEqualTo(String value) {
+            addCriterion("present_illness_diagnose >=", value, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseLessThan(String value) {
+            addCriterion("present_illness_diagnose <", value, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseLessThanOrEqualTo(String value) {
+            addCriterion("present_illness_diagnose <=", value, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseLike(String value) {
+            addCriterion("present_illness_diagnose like", value, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseNotLike(String value) {
+            addCriterion("present_illness_diagnose not like", value, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseIn(List<String> values) {
+            addCriterion("present_illness_diagnose in", values, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseNotIn(List<String> values) {
+            addCriterion("present_illness_diagnose not in", values, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseBetween(String value1, String value2) {
+            addCriterion("present_illness_diagnose between", value1, value2, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
+        public Criteria andPresentIllnessDiagnoseNotBetween(String value1, String value2) {
+            addCriterion("present_illness_diagnose not between", value1, value2, "presentIllnessDiagnose");
+            return (Criteria) this;
+        }
+
         public Criteria andPastHistoryIsNull() {
             addCriterion("past_history is null");
             return (Criteria) this;

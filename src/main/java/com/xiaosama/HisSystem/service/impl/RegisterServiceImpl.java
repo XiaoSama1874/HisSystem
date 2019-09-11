@@ -2,7 +2,7 @@ package com.xiaosama.HisSystem.service.impl;
 
 import com.xiaosama.HisSystem.dao.*;
 import com.xiaosama.HisSystem.pojo.dto.DataWithStatus;
-import com.xiaosama.HisSystem.pojo.dto.DtoDoctor;
+import com.xiaosama.HisSystem.pojo.dto.DTODoctor;
 import com.xiaosama.HisSystem.pojo.dto.StatusCode;
 import com.xiaosama.HisSystem.pojo.po.*;
 import com.xiaosama.HisSystem.service.RegisterService;
@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -52,16 +53,16 @@ public class RegisterServiceImpl implements RegisterService, StatusCode {
     }
 
     @Override
-    public List<DtoDoctor> getAllDoctors() {
+    public List<DTODoctor> getAllDoctors() {
         List<Doctor> doctors = doctorMapper.all();
-        List<DtoDoctor> dtoDoctors = new ArrayList<>();
+        List<DTODoctor> DTODoctors = new ArrayList<>();
         List<RegisterLevel> registerLevels = registerLevelMapper.all();
         for (Doctor d :
                 doctors) {
             Double integer=registerLevels.stream().filter((x)->x.getName().equals(d.getRegisterLevel())).findFirst().get().getFee().doubleValue();
-            dtoDoctors.add(new DtoDoctor(d.getId(),d.getDeptName(),d.getRealName(),d.getRegisterLevel(), (int) integer.doubleValue()));
+            DTODoctors.add(new DTODoctor(d.getId(),d.getDeptName(),d.getRealName(),d.getRegisterLevel(), (int) integer.doubleValue()));
         }
-        return dtoDoctors;
+        return DTODoctors;
     }
 
     @Override
@@ -70,6 +71,8 @@ public class RegisterServiceImpl implements RegisterService, StatusCode {
     }
     @Override
     public DataWithStatus addRegisterInfo(RegisterInfo registerInfo){
+        registerInfo.setCreateTime(new Date());
+        System.out.println(new Date());
         Integer a=registerInfoMapper.insertSelective(registerInfo);;
         if (a==1){
             return new DataWithStatus(registerInfo, SUCCESS);

@@ -1,3 +1,4 @@
+
 spring:
   datasource:
     username: root
@@ -30,3 +31,5 @@ mybatis:
   mapper-locations: classpath:mybatis/mapper/*.xml
 
 #  type-aliases-package: com.xiaosama.springboot_mybatis.entity
+server:
+  port: 8080
